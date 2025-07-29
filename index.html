@@ -10,11 +10,10 @@
 
         body {
             font-family: 'Press Start 2P', monospace;
-            /* Ржавая металлическая текстура в качестве фона */
             background: url('https://images.wallpaperscraft.ru/image/single/tekstura_fon_rzhavchina_18506_2560x1440.jpg') no-repeat center center fixed;
             background-size: cover;
-            background-color: #302010; /* Темно-ржавый цвет для смешивания с фоном */
-            color: #c0c0c0; /* Светло-серый текст для контраста */
+            background-color: #302010;
+            color: #c0c0c0;
             margin: 0;
             padding: 0;
             display: flex;
@@ -22,25 +21,24 @@
             align-items: center;
             min-height: 100vh;
             text-shadow: 1px 1px #000;
-            font-size: 0.7rem; /* Базовый размер шрифта для всего тела */
+            font-size: 0.85rem; /* Увеличен базовый размер шрифта */
         }
 
         .page-container {
-            max-width: 750px;
+            max-width: 900px; /* Увеличена максимальная ширина */
             width: 95%;
-            margin-top: 0.75rem;
-            margin-bottom: 0.75rem;
-            background-color: #1a1a1a; /* Очень темный фон для блоков */
-            border: 3px solid #404040; /* Темная, потрепанная рамка */
-            box-shadow: 6px 6px #000;
-            padding: 0.75rem;
-            border-radius: 4px;
+            margin-top: 1rem; /* Увеличен отступ */
+            margin-bottom: 1rem; /* Увеличен отступ */
+            background-color: #1a1a1a;
+            border: 4px solid #404040; /* Увеличена толщина рамки */
+            box-shadow: 8px 8px #000; /* Увеличена тень */
+            padding: 1rem; /* Увеличен вертикальный отступ */
+            border-radius: 6px;
             position: relative;
             display: none;
             flex-direction: column;
-            gap: 0.75rem;
-            /* Имитация ржавой текстуры на блоках */
-            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23553311" surfaceScale="2" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLighting><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%231a1a1a" filter="url(%23f)"/></svg>');
+            gap: 1rem; /* Увеличен промежуток */
+            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23553311" surfaceScale="2" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLight><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%231a1a1a" filter="url(%23f)"/></svg>');
             background-size: cover;
         }
 
@@ -48,93 +46,114 @@
             display: flex;
         }
 
+        .header-block, .footer-block {
+            max-width: 900px; /* Увеличена максимальная ширина */
+            width: 95%;
+            background-color: #1a1a1a;
+            border: 4px solid #404040; /* Увеличена толщина рамки */
+            box-shadow: 8px 8px #000; /* Увеличена тень */
+            border-radius: 6px;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23553311" surfaceScale="2" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLight><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%231a1a1a" filter="url(%23f)"/></svg>');
+            background-size: cover;
+        }
+
+        .header-block {
+            margin-bottom: 1rem; /* Увеличен отступ */
+            padding: 1rem; /* Увеличен отступ */
+        }
+
+        .footer-block {
+            margin-top: 1rem; /* Увеличен отступ */
+            padding: 1rem; /* Увеличен отступ */
+        }
+
         @media (min-width: 1024px) {
             .main-wrapper .main-content-area {
                 display: flex;
                 flex-direction: row;
-                gap: 0.75rem;
+                gap: 1rem; /* Увеличен промежуток */
             }
             .main-wrapper .main-content-area .content-left {
                 flex: 3;
-                padding: 0.75rem;
+                padding: 1rem; /* Увеличен отступ */
             }
             .main-wrapper .main-content-area .sidebar {
                 flex: 1;
-                padding: 0.75rem;
+                padding: 1rem; /* Увеличен отступ */
             }
         }
 
         .sidebar {
-            background-color: #1a1a1a; /* Очень темный фон */
-            border: 3px solid #404040; /* Темная, потрепанная рамка */
-            box-shadow: 6px 6px #000;
-            padding: 0.75rem;
-            border-radius: 4px;
+            background-color: #1a1a1a;
+            border: 4px solid #404040;
+            box-shadow: 8px 8px #000;
+            padding: 1rem;
+            border-radius: 6px;
             background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23553311" surfaceScale="2" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLight><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%231a1a1a" filter="url(%23f)"/></svg>');
             background-size: cover;
         }
 
         h1 {
-            color: #ffcc00; /* Золотой для неонового свечения */
-            text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00, 0 0 20px #ffcc00, 0 0 25px #ffcc00, 0 0 30px #ffcc00; /* Эффект неонового свечения */
-            margin-bottom: 0.4rem;
-            font-size: 1.6rem; /* Уменьшен размер */
+            color: #ffcc00;
+            text-shadow: 0 0 7px #ffcc00, 0 0 14px #ffcc00, 0 0 21px #ffcc00, 0 0 28px #ffcc00, 0 0 35px #ffcc00, 0 0 42px #ffcc00; /* Увеличено свечение */
+            margin-bottom: 0.6rem; /* Увеличен отступ */
+            font-size: 2.2rem; /* Увеличен размер */
         }
 
         h2 {
-            color: #ffaa00; /* Оранжево-золотой */
-            text-shadow: 1px 1px #000;
-            margin-bottom: 0.4rem;
-            font-size: 1rem; /* Уменьшен размер */
+            color: #ffaa00;
+            text-shadow: 1.5px 1.5px #000; /* Увеличена тень */
+            margin-bottom: 0.6rem; /* Увеличен отступ */
+            font-size: 1.3rem; /* Увеличен размер */
         }
 
         h3 {
-            color: #ffaa00; /* Оранжево-золотой */
-            text-shadow: 0.5px 0.5px #000;
-            margin-bottom: 0.2rem;
-            font-size: 0.8rem; /* Уменьшен размер */
+            color: #ffaa00;
+            text-shadow: 1px 1px #000; /* Увеличена тень */
+            margin-bottom: 0.3rem; /* Увеличен отступ */
+            font-size: 0.95rem; /* Увеличен размер */
         }
 
         p {
-            font-size: 0.65rem; /* Явно задан меньший размер для параграфов */
-            margin-bottom: 0.4rem; /* Уменьшен отступ */
+            font-size: 0.8rem; /* Увеличен размер для параграфов */
+            margin-bottom: 0.6rem; /* Увеличен отступ */
         }
 
         .section-title {
-            border-bottom: 1px dashed #404040; /* Темная пунктирная линия */
-            padding-bottom: 0.25rem;
-            margin-bottom: 0.6rem;
+            border-bottom: 2px dashed #404040; /* Увеличена толщина линии */
+            padding-bottom: 0.3rem; /* Увеличен отступ */
+            margin-bottom: 0.8rem; /* Увеличен отступ */
         }
 
         .button-retro {
-            background-color: #600000; /* Темно-красный */
-            color: #ffcc00; /* Золотой текст */
-            border: 1.5px solid #800000; /* Более темная рамка */
-            border-bottom: 3px solid #400000;
-            border-right: 3px solid #400000;
-            padding: 0.35rem 0.7rem; /* Уменьшен отступ */
+            background-color: #600000;
+            color: #ffcc00;
+            border: 2px solid #800000; /* Увеличена толщина рамки */
+            border-bottom: 4px solid #400000; /* Увеличена толщина рамки */
+            border-right: 4px solid #400000; /* Увеличена толщина рамки */
+            padding: 0.5rem 1rem; /* Увеличен отступ */
             font-family: 'Press Start 2P', monospace;
-            text-shadow: 0.8px 0.8px #000;
+            text-shadow: 1px 1px #000; /* Увеличена тень текста */
             cursor: pointer;
             transition: all 0.1s ease-in-out;
-            border-radius: 3px;
-            font-size: 0.6rem; /* Уменьшен размер шрифта */
+            border-radius: 4px; /* Увеличен радиус скругления */
+            font-size: 0.75rem; /* Увеличен размер шрифта */
         }
 
         .button-retro:hover {
             background-color: #700000;
-            border-top: 3px solid #800000;
-            border-left: 3px solid #800000;
-            border-bottom: 1.5px solid #400000;
-            border-right: 1.5px solid #400000;
+            border-top: 4px solid #800000;
+            border-left: 4px solid #800000;
+            border-bottom: 2px solid #400000;
+            border-right: 2px solid #400000;
         }
 
         .button-retro:active {
             background-color: #500000;
-            border: 3px solid #400000;
-            border-bottom: 1.5px solid #800000;
-            border-right: 1.5px solid #800000;
-            transform: translateY(1.5px);
+            border: 4px solid #400000;
+            border-bottom: 2px solid #800000;
+            border-right: 2px solid #800000;
+            transform: translateY(2px); /* Увеличено смещение */
         }
 
         .status-online {
@@ -148,10 +167,10 @@
         }
 
         .list-item {
-            margin-bottom: 0.15rem; /* Уменьшен отступ */
-            padding-left: 0.5rem; /* Уменьшен отступ */
+            margin-bottom: 0.25rem; /* Увеличен отступ */
+            padding-left: 0.65rem; /* Увеличен отступ */
             position: relative;
-            font-size: 0.65rem; /* Уменьшен размер шрифта */
+            font-size: 0.75rem; /* Увеличен размер шрифта */
         }
 
         .list-item::before {
@@ -162,206 +181,221 @@
         }
 
         .mod-card, .block-card {
-            background-color: #2a2a2a; /* Более темный фон для карточек */
-            border: 1.5px solid #505050;
-            padding: 0.5rem; /* Уменьшен отступ */
-            margin-bottom: 0.5rem; /* Уменьшен отступ */
-            border-radius: 3px;
-            box-shadow: 3px 3px #000;
+            background-color: #2a2a2a;
+            border: 2px solid #505050; /* Увеличена толщина рамки */
+            padding: 0.75rem; /* Увеличен отступ */
+            margin-bottom: 0.75rem; /* Увеличен отступ */
+            border-radius: 4px; /* Увеличен радиус скругления */
+            box-shadow: 4px 4px #000; /* Увеличена тень */
             background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23444" surfaceScale="3" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLighting><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%232a2a2a" filter="url(%23f)"/></svg>');
             background-size: cover;
         }
 
-        .mod-card h3, .block-card h3 {
+        .mod-card h3 {
             color: #ffcc00;
-            margin-bottom: 0.15rem; /* Уменьшен отступ */
+            margin-bottom: 0.25rem; /* Увеличен отступ */
+            font-size: 0.8rem; /* Уменьшен размер шрифта для заголовков в mod-card */
+        }
+        .block-card h3 {
+            color: #ffcc00;
+            margin-bottom: 0.25rem; /* Увеличен отступ */
+            font-size: 0.95rem; /* Оставим как было для block-card */
+        }
+
+
+        .mod-card p {
+            font-size: 0.65rem; /* Уменьшен размер шрифта для текста в mod-card */
         }
 
         .footer {
-            margin-top: 0.75rem;
-            padding-top: 0.5rem;
-            border-top: 1.5px dashed #404040;
             text-align: center;
-            font-size: 0.5rem; /* Уменьшен размер шрифта */
+            font-size: 0.65rem; /* Увеличен размер шрифта */
             color: #a0a0a0;
-            width: 95%;
-            max-width: 750px;
+            padding-top: 0.6rem; /* Увеличен отступ */
+            border-top: 2px dashed #404040; /* Увеличена толщина линии */
+        }
+
+        .footer .flex {
+            margin-top: 0.6rem; /* Увеличен отступ */
+            gap: 0.6rem; /* Увеличен промежуток */
+        }
+
+        .footer a {
+            font-size: 0.65rem; /* Увеличен размер шрифта */
         }
 
         .navbar {
-            background-color: #1a1a1a; /* Очень темный фон */
-            border: 3px solid #404040;
-            box-shadow: 6px 6px #000;
-            padding: 0.5rem 0.8rem; /* Уменьшен отступ */
-            margin-bottom: 0.75rem;
-            border-radius: 4px;
-            width: 95%;
-            max-width: 750px;
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 0;
+            margin-bottom: 0;
+            border-radius: 0;
+            width: 100%;
             display: flex;
             justify-content: center;
-            gap: 0.6rem; /* Уменьшен промежуток */
+            gap: 0.75rem; /* Увеличен промежуток */
             flex-wrap: wrap;
-            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23553311" surfaceScale="2" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLight><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%231a1a1a" filter="url(%23f)"/></svg>');
-            background-size: cover;
+            background-image: none;
         }
 
         .navbar a {
-            color: #ffcc00; /* Золотой */
+            color: #ffcc00;
             text-decoration: none;
-            padding: 0.2rem 0.5rem; /* Уменьшен отступ */
-            border: 1.5px solid #ffcc00;
-            border-radius: 3px;
+            padding: 0.3rem 0.7rem; /* Увеличен отступ */
+            border: 2px solid #ffcc00; /* Увеличена толщина рамки */
+            border-radius: 4px;
             transition: all 0.1s ease-in-out;
-            text-shadow: 0.8px 0.8px #000;
-            font-size: 0.6rem; /* Уменьшен размер шрифта */
+            text-shadow: 1px 1px #000; /* Увеличена тень текста */
+            font-size: 0.7rem; /* Увеличен размер шрифта */
         }
 
         .navbar a:hover {
             background-color: #ffcc00;
-            color: #1a1a1a; /* Темный фон при наведении */
+            color: #1a1a1a;
             text-shadow: none;
         }
 
         .sidebar-section {
-            background-color: #2a2a2a; /* Темнее красный */
-            border: 1.5px solid #505050;
-            padding: 0.6rem; /* Уменьшен отступ */
-            margin-bottom: 0.6rem;
-            border-radius: 3px;
-            box-shadow: 3px 3px #000;
+            background-color: #2a2a2a;
+            border: 2px solid #505050; /* Увеличена толщина рамки */
+            padding: 0.75rem; /* Увеличен отступ */
+            margin-bottom: 0.75rem; /* Увеличен отступ */
+            border-radius: 4px;
+            box-shadow: 4px 4px #000; /* Увеличена тень */
             background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23444" surfaceScale="3" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLighting><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%232a2a2a" filter="url(%23f)"/></svg>');
             background-size: cover;
         }
 
         .sidebar-section h3 {
-            color: #ffcc00; /* Золотой */
-            margin-bottom: 0.4rem; /* Уменьшен отступ */
-            font-size: 0.75rem; /* Уменьшен размер шрифта */
+            color: #ffcc00;
+            margin-bottom: 0.5rem; /* Увеличен отступ */
+            font-size: 0.9rem; /* Увеличен размер шрифта */
         }
 
         .sidebar-section ul li {
-            font-size: 0.65rem; /* Уменьшен размер шрифта */
-            margin-bottom: 0.15rem; /* Уменьшен отступ */
+            font-size: 0.75rem; /* Увеличен размер шрифта */
+            margin-bottom: 0.25rem; /* Увеличен отступ */
         }
 
         .sidebar-link {
             display: block;
-            background-color: #600000; /* Темно-красный */
-            color: #ffcc00; /* Золотой */
-            padding: 0.35rem; /* Уменьшен отступ */
-            margin-bottom: 0.2rem; /* Уменьшен отступ */
+            background-color: #600000;
+            color: #ffcc00;
+            border: 2px solid #800000;
+            border-bottom: 4px solid #400000;
+            border-right: 4px solid #400000;
+            padding: 0.5rem; /* Увеличен отступ */
+            margin-bottom: 0.3rem; /* Увеличен отступ */
             text-align: center;
             text-decoration: none;
-            border: 1.5px solid #800000;
-            border-bottom: 3px solid #400000;
-            border-right: 3px solid #400000;
-            border-radius: 3px;
+            border-radius: 4px;
             transition: all 0.1s ease-in-out;
-            text-shadow: 0.8px 0.8px #000;
-            font-size: 0.55rem; /* Уменьшен размер шрифта */
+            text-shadow: 1px 1px #000; /* Увеличена тень текста */
+            font-size: 0.7rem; /* Увеличен размер шрифта */
         }
 
         .back-button {
             position: absolute;
-            top: 0.4rem; /* Уменьшен отступ */
-            left: 0.4rem; /* Уменьшен отступ */
-            background-color: #600000; /* Темно-красный */
-            color: #ffcc00; /* Золотой */
-            border: 1.5px solid #800000;
-            border-bottom: 3px solid #400000;
-            border-right: 3px solid #400000;
-            padding: 0.2rem 0.5rem; /* Уменьшен отступ */
+            top: 0.5rem; /* Увеличен отступ */
+            left: 0.5rem; /* Увеличен отступ */
+            background-color: #600000;
+            color: #ffcc00;
+            border: 2px solid #800000;
+            border-bottom: 4px solid #400000;
+            border-right: 4px solid #400000;
+            padding: 0.3rem 0.7rem; /* Увеличен отступ */
             font-family: 'Press Start 2P', monospace;
-            text-shadow: 0.8px 0.8px #000;
+            text-shadow: 1px 1px #000; /* Увеличена тень текста */
             cursor: pointer;
             transition: all 0.1s ease-in-out;
-            border-radius: 3px;
+            border-radius: 4px;
             z-index: 10;
-            font-size: 0.55rem; /* Уменьшен размер шрифта */
+            font-size: 0.7rem; /* Увеличен размер шрифта */
         }
 
         .back-button:hover {
             background-color: #700000;
-            border-top: 3px solid #800000;
-            border-left: 3px solid #800000;
-            border-bottom: 1.5px solid #400000;
-            border-right: 1.5px solid #400000;
+            border-top: 4px solid #800000;
+            border-left: 4px solid #800000;
+            border-bottom: 2px solid #400000;
+            border-right: 2px solid #400000;
         }
 
         .back-button:active {
             background-color: #500000;
-            border: 3px solid #400000;
-            border-bottom: 1.5px solid #800000;
-            border-right: 1.5px solid #800000;
-            transform: translateY(1.5px);
+            border: 4px solid #400000;
+            border-bottom: 2px solid #800000;
+            border-right: 2px solid #800000;
+            transform: translateY(2px);
         }
 
         /* Уведомление о копировании */
         #copy-notification {
             position: fixed;
-            top: -100px; /* Скрыто сверху */
+            top: -100px;
             right: 1rem;
-            background-color: #1a1a1a; /* Темный фон */
-            color: #ffcc00; /* Золотой текст */
-            padding: 1.2rem 1.5rem; /* Увеличена высота */
-            border-radius: 6px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            background-color: #1a1a1a;
+            color: #ffcc00;
+            padding: 1.5rem 2rem; /* Увеличена высота и ширина */
+            border-radius: 8px; /* Увеличен радиус */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Увеличена тень */
             font-family: 'Press Start 2P', monospace;
-            font-size: 0.7rem; /* Уменьшен размер шрифта */
+            font-size: 0.9rem; /* Увеличен размер шрифта */
             z-index: 1000;
             transition: top 0.5s ease-out, opacity 0.5s ease-out;
             opacity: 0;
-            border: 2px solid #505050; /* Темная металлическая рамка */
+            border: 3px solid #505050; /* Увеличена толщина рамки */
             background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23444" surfaceScale="2" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLighting><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%231a1a1a" filter="url(%23f)"/></svg>');
             background-size: cover;
         }
 
         #copy-notification.show {
-            top: 1rem;
+            top: 1.5rem; /* Увеличено смещение */
             opacity: 1;
         }
 
         /* Стили для конкретных блоков сайдбара */
         #server-status.sidebar-section {
-            padding-top: 0.1rem; /* Еще уменьшаем высоту */
-            padding-bottom: 0.1rem;
+            padding-top: 0.2rem; /* Увеличена высота */
+            padding-bottom: 0.2rem;
         }
 
         #info-section.sidebar-section {
-            padding-top: 0.8rem; /* Увеличиваем высоту */
-            padding-bottom: 0.8rem;
+            padding-top: 1rem; /* Увеличена высота */
+            padding-bottom: 1rem;
         }
 
         /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
             body {
-                font-size: 0.55rem; /* Базовый размер шрифта для мобильных */
+                font-size: 0.7rem; /* Базовый размер шрифта для мобильных */
             }
             .page-container {
-                padding: 0.3rem;
-                margin-top: 0.4rem;
-                margin-bottom: 0.4rem;
+                padding: 0.6rem;
+                margin-top: 0.7rem;
+                margin-bottom: 0.7rem;
             }
 
             h1 {
-                font-size: 0.8rem;
+                font-size: 1.2rem;
             }
 
             h2 {
-                font-size: 0.6rem;
+                font-size: 0.9rem;
             }
 
             h3 {
-                font-size: 0.5rem;
+                font-size: 0.8rem;
             }
 
             p {
-                font-size: 0.55rem;
+                font-size: 0.7rem;
             }
 
             .button-retro, .navbar a, .sidebar-link, .back-button {
-                padding: 0.15rem 0.3rem;
-                font-size: 0.45rem;
+                padding: 0.25rem 0.5rem;
+                font-size: 0.6rem;
             }
 
             .grid-cols-2 {
@@ -369,68 +403,69 @@
             }
 
             .sidebar-section {
-                padding: 0.3rem;
-                margin-bottom: 0.3rem;
+                padding: 0.6rem;
+                margin-bottom: 0.6rem;
             }
 
             .list-item {
-                font-size: 0.55rem;
+                font-size: 0.7rem;
             }
 
             .footer {
-                font-size: 0.4rem;
+                font-size: 0.55rem;
             }
 
             #copy-notification {
                 right: 0.5rem;
                 left: 0.5rem;
                 text-align: center;
-                font-size: 0.6rem;
-                padding: 0.6rem 0.8rem; /* Адаптация padding для мобильных */
+                font-size: 0.8rem;
+                padding: 0.8rem 1rem;
             }
         }
     </style>
 </head>
 <body class="flex flex-col items-center p-4 md:p-8">
-    <header class="text-center mb-8">
-        <h1 class="text-4xl md:text-5xl mb-4">Pure Lunacy</h1>
-        <p class="text-lg md:text-xl">ТЕХНИЧЕСКИЙ МАЙНКРАФТ СЕРВЕР</p>
-    </header>
-
-    <nav class="navbar">
-        <a href="#" id="nav-home">ГЛАВНАЯ</a>
-        <a href="#" id="nav-about">МИР</a>
-        <a href="#" id="nav-mods">КРАФТЫ</a>
-        <a href="#" id="nav-blocks">ПРЕДМЕТЫ</a>
-        <a href="#" id="nav-rules">ПРАВИЛА</a>
-    </nav>
+    <div class="header-block text-center">
+        <header class="mb-4">
+            <h1 class="text-4xl md:text-5xl mb-2">Pure Lunacy</h1>
+            <p class="text-lg md:text-xl">ТЕХНИЧЕСКИЙ МАЙНКРАФТ СЕРВЕР</p>
+        </header>
+        <nav class="navbar">
+            <a href="#" id="nav-home">ГЛАВНАЯ</a>
+            <a href="#" id="nav-about">МИР</a>
+            <a href="#" id="nav-mods">КРАФТЫ</a>
+            <a href="#" id="nav-blocks">ПРЕДМЕТЫ</a>
+            <a href="#" id="nav-rules">ПРАВИЛА</a>
+        </nav>
+    </div>
 
     <!-- Главная страница -->
     <div id="main-wrapper" class="page-container">
         <div class="main-content-area flex flex-col lg:flex-row gap-8">
             <div class="content-left flex-3">
                 <h2 class="text-3xl mb-4">Добро пожаловать в мир технологий</h2>
-                <div class="bg-red-800 border-4 border-red-900 shadow-lg p-4 mb-8 text-center" style="height: 80px; display: flex; align-items: center; justify-content: center; background-color: #202020; border-color: #404040; box-shadow: 4px 4px #000;">
-                    <span class="text-lg text-white">Изображение сервера</span>
-                </div>
                 <p class="mb-4">
                     Исследуйте мир промышленных технологий, создавайте сложные механизмы и
                     автоматизируйте производство. Наш сервер предлагает уникальный игровой опыт с
                     модифицированными рецептами и новыми возможностями.
                 </p>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                    <div class="mod-card text-center">
-                        <h3>Промышленность</h3>
-                        <p>Сложные производственные цепочки</p>
-                    </div>
+                <!-- Блок Промышленность (длиннее) -->
+                <div class="mod-card text-center mb-4">
+                    <h3>Промышленность</h3>
+                    <p style="font-size: 0.65rem;">Сложные производственные цепочки</p>
+                </div>
+
+                <!-- Блоки Автоматизация и Технологии (в новой сетке) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                     <div class="mod-card text-center">
                         <h3>Автоматизация</h3>
-                        <p>Создавайте умные фабрики</p>
+                        <p style="font-size: 0.65rem;">Создавайте умные фабрики</p>
                     </div>
                     <div class="mod-card text-center">
                         <h3>Технологии</h3>
-                        <p>Продвинутые машины и механизмы</p>
+                        <p style="font-size: 0.65rem;">Продвинутые машины и механизмы</p>
                     </div>
                 </div>
             </div>
@@ -463,24 +498,22 @@
                 <section class="sidebar-section">
                     <h3>Новости</h3>
                     <div class="mb-3">
-                        <p class="text-sm text-gray-400" style="font-size: 0.6rem;">25.07.2025</p>
-                        <p style="font-size: 0.65rem;">Добавлены новые промышленные машины</p>
+                        <p class="text-sm text-gray-400" style="font-size: 0.7rem;">25.07.2025</p>
+                        <p style="font-size: 0.75rem;">Добавлены новые промышленные машины</p>
                     </div>
                     <div class="mb-3">
-                        <p class="text-sm text-gray-400" style="font-size: 0.6rem;">20.07.2025</p>
-                        <p style="font-size: 0.65rem;">Обновление системы автоматизации</p>
+                        <p class="text-sm text-gray-400" style="font-size: 0.7rem;">20.07.2025</p>
+                        <p style="font-size: 0.75rem;">Обновление системы автоматизации</p>
                     </div>
                     <div>
-                        <p class="text-sm text-gray-400" style="font-size: 0.6rem;">15.07.2025</p>
-                        <p style="font-size: 0.65rem;">Новый биом: Индустриальная пустошь</p>
+                        <p class="text-sm text-gray-400" style="font-size: 0.7rem;">15.07.2025</p>
+                        <p style="font-size: 0.75rem;">Новый биом: Индустриальная пустошь</p>
                     </div>
                 </section>
 
                 <section class="sidebar-section">
                     <h3>Сообщество</h3>
                     <a href="#" class="sidebar-link">Discord</a>
-                    <a href="#" class="sidebar-link">Telegram</a>
-                    <a href="#" class="sidebar-link">VKontakte</a>
                 </section>
             </div>
         </div>
@@ -548,35 +581,37 @@
             <div class="block-card">
                 <h3>Усиленный Обсидиан</h3>
                 <p>Чрезвычайно прочный блок, устойчивый к взрывам и разрушению.</p>
-                <img src="https://placehold.co/128x128/4a4a4a/c0c0c0?text=Блок" alt="Изображение Усиленного Обсидиана" class="mx-auto mt-2 rounded w-full h-auto max-w-[128px]">
+                <img src="https://placehold.co/128x128/4a4a4a/c0c0c0?text=Блок" alt="[Изображение Усиленного Обсидиана]" class="mx-auto mt-2 rounded w-full h-auto max-w-[128px]">
             </div>
             <div class="block-card">
                 <h3>Энергетическое Ядро</h3>
                 <p>Источник огромного количества энергии для ваших механизмов.</p>
-                <img src="https://placehold.co/128x128/4a4a4a/c0c0c0?text=Ядро" alt="Изображение Энергетического Ядра" class="mx-auto mt-2 rounded w-full h-auto max-w-[128px]">
+                <img src="https://placehold.co/128x128/4a4a4a/c0c0c0?text=Ядро" alt="[Изображение Энергетического Ядра]" class="mx-auto mt-2 rounded w-full h-auto max-w-[128px]">
             </div>
             <div class="block-card">
                 <h3>Магический Алтарь</h3>
                 <p>Позволяет создавать мощные артефакты и заклинания.</p>
-                <img src="https://placehold.co/128x128/4a4a4a/c0c0c0?text=Алтарь" alt="Изображение Магического Алтаря" class="mx-auto mt-2 rounded w-full h-auto max-w-[128px]">
+                <img src="https://placehold.co/128x128/4a4a4a/c0c0c0?text=Алтарь" alt="[Изображение Магического Алтаря]" class="mx-auto mt-2 rounded w-full h-auto max-w-[128px]">
             </div>
             <div class="block-card">
                 <h3>Портальный Блок</h3>
                 <p>Используется для создания телепортов между локациями.</p>
-                <img src="https://placehold.co/128x128/4a4a4a/c0c0c0?text=Портал" alt="Изображение Портального Блока" class="mx-auto mt-2 rounded w-full h-auto max-w-[128px]">
+                <img src="https://placehold.co/128x128/4a4a4a/c0c0c0?text=Портал" alt="[Изображение Портального Блока]" class="mx-auto mt-2 rounded w-full h-auto max-w-[128px]">
             </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <p>&copy; 2025 Pure Lunacy Server. Все права защищены.</p>
-        <p>Сделано с любовью к пикселям.</p>
-        <div class="flex justify-center gap-4 mt-2">
-            <a href="#" class="text-gray-400 hover:text-white text-sm">Правила</a>
-            <a href="#" class="text-gray-400 hover:text-white text-sm">Поддержка</a>
-            <a href="#" class="text-gray-400 hover:text-white text-sm">Донат</a>
-        </div>
-    </footer>
+    <div class="footer-block">
+        <footer class="footer">
+            <p>&copy; 2025 Pure Lunacy Server. Все права защищены.</p>
+            <p>Сделано с любовью к пикселям.</p>
+            <div class="flex justify-center gap-4 mt-2">
+                <a href="#" class="text-gray-400 hover:text-white text-sm">Правила</a>
+                <a href="#" class="text-gray-400 hover:text-white text-sm">Поддержка</a>
+                <a href="#" class="text-gray-400 hover:text-white text-sm">Донат</a>
+            </div>
+        </footer>
+    </div>
 
     <!-- Уведомление о копировании IP -->
     <div id="copy-notification">Сервер скопирован!</div>
