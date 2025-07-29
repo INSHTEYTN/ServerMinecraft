@@ -22,22 +22,21 @@
         }
 
         .page-container {
-            max-width: 1200px;
+            max-width: 1400px; /* Увеличена ширина */
             width: 95%;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+            margin-top: 1.5rem; /* Уменьшен отступ сверху/снизу */
+            margin-bottom: 1.5rem;
             background-color: #4a2a2a;
             border: 4px solid #6b3b3b;
             box-shadow: 8px 8px #1a0a0a;
-            padding: 2rem;
+            padding: 1.5rem; /* Уменьшен вертикальный отступ */
             border-radius: 8px;
             position: relative;
-            display: none; /* Скрыто по умолчанию, будет управляться JS */
+            display: none;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.5rem; /* Уменьшен промежуток */
         }
 
-        /* Главная страница отображается по умолчанию */
         #main-wrapper {
             display: flex;
         }
@@ -46,13 +45,15 @@
             .main-wrapper .main-content-area {
                 display: flex;
                 flex-direction: row;
-                gap: 2rem;
+                gap: 1.5rem; /* Уменьшен промежуток */
             }
             .main-wrapper .main-content-area .content-left {
                 flex: 3;
+                padding: 1.5rem; /* Уменьшен вертикальный отступ */
             }
             .main-wrapper .main-content-area .sidebar {
                 flex: 1;
+                padding: 1.5rem; /* Уменьшен вертикальный отступ */
             }
         }
 
@@ -60,26 +61,35 @@
             background-color: #4a2a2a;
             border: 4px solid #6b3b3b;
             box-shadow: 8px 8px #1a0a0a;
-            padding: 2rem;
+            padding: 1.5rem; /* Уменьшен вертикальный отступ */
             border-radius: 8px;
         }
 
         h1 {
             color: #ffcc00;
             text-shadow: 4px 4px #000;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem; /* Уменьшен отступ */
+            font-size: 3.5rem; /* Немного уменьшен размер */
         }
 
-        h2, h3 {
+        h2 {
             color: #ffaa00;
             text-shadow: 3px 3px #000;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem; /* Уменьшен отступ */
+            font-size: 2rem; /* Немного уменьшен размер */
+        }
+
+        h3 {
+            color: #ffaa00;
+            text-shadow: 3px 3px #000;
+            margin-bottom: 0.5rem; /* Уменьшен отступ */
+            font-size: 1.25rem; /* Немного уменьшен размер */
         }
 
         .section-title {
             border-bottom: 2px dashed #6b3b3b;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
+            padding-bottom: 0.4rem; /* Уменьшен отступ */
+            margin-bottom: 1rem; /* Уменьшен отступ */
         }
 
         .button-retro {
@@ -88,12 +98,13 @@
             border: 2px solid #a05050;
             border-bottom: 4px solid #603030;
             border-right: 4px solid #603030;
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1.2rem; /* Уменьшен отступ */
             font-family: 'Press Start 2P', monospace;
             text-shadow: 1px 1px #000;
             cursor: pointer;
             transition: all 0.1s ease-in-out;
             border-radius: 4px;
+            font-size: 0.9rem; /* Немного уменьшен размер шрифта */
         }
 
         .button-retro:hover {
@@ -123,8 +134,8 @@
         }
 
         .list-item {
-            margin-bottom: 0.5rem;
-            padding-left: 1rem;
+            margin-bottom: 0.4rem; /* Уменьшен отступ */
+            padding-left: 0.8rem; /* Уменьшен отступ */
             position: relative;
         }
 
@@ -138,51 +149,52 @@
         .mod-card, .block-card {
             background-color: #5a3a3a;
             border: 2px solid #7b4b4b;
-            padding: 1rem;
-            margin-bottom: 1rem;
+            padding: 0.8rem; /* Уменьшен отступ */
+            margin-bottom: 0.8rem; /* Уменьшен отступ */
             border-radius: 4px;
             box-shadow: 4px 4px #2a1a1a;
         }
 
         .mod-card h3, .block-card h3 {
             color: #ffcc00;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem; /* Уменьшен отступ */
         }
 
         .footer {
-            margin-top: 2rem;
-            padding-top: 1rem;
+            margin-top: 1.5rem; /* Уменьшен отступ */
+            padding-top: 0.8rem; /* Уменьшен отступ */
             border-top: 2px dashed #6b3b3b;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem; /* Немного уменьшен размер шрифта */
             color: #a0a0a0;
             width: 95%;
-            max-width: 1200px;
+            max-width: 1400px; /* Соответствует ширине page-container */
         }
 
         .navbar {
             background-color: #4a2a2a;
             border: 4px solid #6b3b3b;
             box-shadow: 8px 8px #1a0a0a;
-            padding: 1rem 2rem;
-            margin-bottom: 2rem;
+            padding: 0.8rem 1.5rem; /* Уменьшен отступ */
+            margin-bottom: 1.5rem; /* Уменьшен отступ */
             border-radius: 8px;
             width: 95%;
-            max-width: 1200px;
+            max-width: 1400px; /* Соответствует ширине page-container */
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem; /* Уменьшен промежуток */
             flex-wrap: wrap;
         }
 
         .navbar a {
             color: #ffcc00;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem; /* Уменьшен отступ */
             border: 2px solid #ffcc00;
             border-radius: 4px;
             transition: all 0.1s ease-in-out;
             text-shadow: 1px 1px #000;
+            font-size: 0.9rem; /* Немного уменьшен размер шрифта */
         }
 
         .navbar a:hover {
@@ -194,24 +206,24 @@
         .sidebar-section {
             background-color: #5a3a3a;
             border: 2px solid #7b4b4b;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+            padding: 1rem; /* Уменьшен вертикальный отступ */
+            margin-bottom: 1rem; /* Уменьшен отступ */
             border-radius: 4px;
             box-shadow: 4px 4px #2a1a1a;
         }
 
         .sidebar-section h3 {
             color: #ffcc00;
-            margin-bottom: 1rem;
-            text-align: center;
+            margin-bottom: 0.8rem; /* Уменьшен отступ */
+            font-size: 1.1rem; /* Немного уменьшен размер шрифта */
         }
 
         .sidebar-link {
             display: block;
             background-color: #8b4545;
             color: #fff;
-            padding: 0.75rem;
-            margin-bottom: 0.5rem;
+            padding: 0.6rem; /* Уменьшен отступ */
+            margin-bottom: 0.4rem; /* Уменьшен отступ */
             text-align: center;
             text-decoration: none;
             border: 2px solid #a05050;
@@ -220,32 +232,26 @@
             border-radius: 4px;
             transition: all 0.1s ease-in-out;
             text-shadow: 1px 1px #000;
-        }
-
-        .sidebar-link:hover {
-            background-color: #9b5555;
-            border-top: 4px solid #a05050;
-            border-left: 4px solid #a05050;
-            border-bottom: 2px solid #603030;
-            border-right: 2px solid #603030;
+            font-size: 0.85rem; /* Немного уменьшен размер шрифта */
         }
 
         .back-button {
             position: absolute;
-            top: 1rem;
-            left: 1rem;
+            top: 0.8rem; /* Уменьшен отступ */
+            left: 0.8rem; /* Уменьшен отступ */
             background-color: #8b4545;
             color: #fff;
             border: 2px solid #a05050;
             border-bottom: 4px solid #603030;
             border-right: 4px solid #603030;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem; /* Уменьшен отступ */
             font-family: 'Press Start 2P', monospace;
             text-shadow: 1px 1px #000;
             cursor: pointer;
             transition: all 0.1s ease-in-out;
             border-radius: 4px;
             z-index: 10;
+            font-size: 0.85rem; /* Немного уменьшен размер шрифта */
         }
 
         .back-button:hover {
@@ -264,26 +270,46 @@
             transform: translateY(2px);
         }
 
+        /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
             .page-container {
-                padding: 1rem;
+                padding: 0.8rem; /* Еще уменьшен отступ на мобильных */
+                margin-top: 1rem;
+                margin-bottom: 1rem;
             }
 
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.5rem; /* Уменьшен размер шрифта на мобильных */
             }
 
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
+            }
+
+            h3 {
+                font-size: 1rem;
             }
 
             .button-retro, .navbar a, .sidebar-link, .back-button {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
             }
 
             .grid-cols-2 {
                 grid-template-columns: 1fr;
+            }
+
+            .sidebar-section {
+                padding: 0.8rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .list-item {
+                font-size: 0.9rem;
+            }
+
+            .footer {
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -307,7 +333,7 @@
         <div class="main-content-area flex flex-col lg:flex-row gap-8">
             <div class="content-left flex-3">
                 <h2 class="text-3xl mb-4">Добро пожаловать в мир технологий</h2>
-                <div class="bg-red-800 border-4 border-red-900 shadow-lg p-4 mb-8 text-center" style="height: 250px; display: flex; align-items: center; justify-content: center;">
+                <div class="bg-red-800 border-4 border-red-900 shadow-lg p-4 mb-8 text-center" style="height: 200px; display: flex; align-items: center; justify-content: center;">
                     <span class="text-2xl text-white">Изображение сервера</span>
                 </div>
                 <p class="mb-4">
@@ -519,7 +545,7 @@
             }
 
             updateServerStatus();
-            showPage('main-wrapper'); // Убедимся, что главная страница открыта по умолчанию
+            showPage('main-wrapper');
 
             refreshButton.addEventListener('click', updateServerStatus);
 
