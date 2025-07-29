@@ -10,31 +10,38 @@
 
         body {
             font-family: 'Press Start 2P', monospace;
-            background: linear-gradient(180deg, #3a1a1a 0%, #2a0a0a 100%);
-            color: #d4c09e;
+            /* Ржавая металлическая текстура в качестве фона */
+            background: url('https://images.wallpaperscraft.ru/image/single/tekstura_fon_rzhavchina_18506_2560x1440.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: #302010; /* Темно-ржавый цвет для смешивания с фоном */
+            color: #c0c0c0; /* Светло-серый текст для контраста */
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            text-shadow: 2px 2px #000;
+            text-shadow: 1px 1px #000;
+            font-size: 0.75rem;
         }
 
         .page-container {
-            max-width: 1400px; /* Увеличена ширина */
+            max-width: 750px;
             width: 95%;
-            margin-top: 1.5rem; /* Уменьшен отступ сверху/снизу */
-            margin-bottom: 1.5rem;
-            background-color: #4a2a2a;
-            border: 4px solid #6b3b3b;
-            box-shadow: 8px 8px #1a0a0a;
-            padding: 1.5rem; /* Уменьшен вертикальный отступ */
-            border-radius: 8px;
+            margin-top: 0.75rem;
+            margin-bottom: 0.75rem;
+            background-color: #1a1a1a; /* Очень темный фон для блоков */
+            border: 3px solid #404040; /* Темная, потрепанная рамка */
+            box-shadow: 6px 6px #000;
+            padding: 0.75rem;
+            border-radius: 4px;
             position: relative;
             display: none;
             flex-direction: column;
-            gap: 1.5rem; /* Уменьшен промежуток */
+            gap: 0.75rem;
+            /* Имитация ржавой текстуры на блоках */
+            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23553311" surfaceScale="2" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLighting><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%231a1a1a" filter="url(%23f)"/></svg>');
+            background-size: cover;
         }
 
         #main-wrapper {
@@ -45,82 +52,89 @@
             .main-wrapper .main-content-area {
                 display: flex;
                 flex-direction: row;
-                gap: 1.5rem; /* Уменьшен промежуток */
+                gap: 0.75rem;
             }
             .main-wrapper .main-content-area .content-left {
                 flex: 3;
-                padding: 1.5rem; /* Уменьшен вертикальный отступ */
+                padding: 0.75rem;
             }
             .main-wrapper .main-content-area .sidebar {
                 flex: 1;
-                padding: 1.5rem; /* Уменьшен вертикальный отступ */
+                padding: 0.75rem;
             }
         }
 
         .sidebar {
-            background-color: #4a2a2a;
-            border: 4px solid #6b3b3b;
-            box-shadow: 8px 8px #1a0a0a;
-            padding: 1.5rem; /* Уменьшен вертикальный отступ */
-            border-radius: 8px;
+            background-color: #1a1a1a; /* Очень темный фон */
+            border: 3px solid #404040; /* Темная, потрепанная рамка */
+            box-shadow: 6px 6px #000;
+            padding: 0.75rem;
+            border-radius: 4px;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23553311" surfaceScale="2" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLight><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%231a1a1a" filter="url(%23f)"/></svg>');
+            background-size: cover;
         }
 
         h1 {
-            color: #ffcc00;
-            text-shadow: 4px 4px #000;
-            margin-bottom: 0.75rem; /* Уменьшен отступ */
-            font-size: 3.5rem; /* Немного уменьшен размер */
+            color: #ffcc00; /* Золотой для неонового свечения */
+            text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00, 0 0 20px #ffcc00, 0 0 25px #ffcc00, 0 0 30px #ffcc00; /* Эффект неонового свечения */
+            margin-bottom: 0.4rem;
+            font-size: 1.8rem;
         }
 
         h2 {
-            color: #ffaa00;
-            text-shadow: 3px 3px #000;
-            margin-bottom: 0.75rem; /* Уменьшен отступ */
-            font-size: 2rem; /* Немного уменьшен размер */
+            color: #ffaa00; /* Оранжево-золотой */
+            text-shadow: 1px 1px #000;
+            margin-bottom: 0.4rem;
+            font-size: 1.1rem;
         }
 
         h3 {
-            color: #ffaa00;
-            text-shadow: 3px 3px #000;
-            margin-bottom: 0.5rem; /* Уменьшен отступ */
-            font-size: 1.25rem; /* Немного уменьшен размер */
+            color: #ffaa00; /* Оранжево-золотой */
+            text-shadow: 0.5px 0.5px #000;
+            margin-bottom: 0.2rem;
+            font-size: 0.85rem;
+        }
+
+        p {
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .section-title {
-            border-bottom: 2px dashed #6b3b3b;
-            padding-bottom: 0.4rem; /* Уменьшен отступ */
-            margin-bottom: 1rem; /* Уменьшен отступ */
+            border-bottom: 1px dashed #404040; /* Темная пунктирная линия */
+            padding-bottom: 0.25rem;
+            margin-bottom: 0.6rem;
         }
 
         .button-retro {
-            background-color: #8b4545;
-            color: #fff;
-            border: 2px solid #a05050;
-            border-bottom: 4px solid #603030;
-            border-right: 4px solid #603030;
-            padding: 0.6rem 1.2rem; /* Уменьшен отступ */
+            background-color: #600000; /* Темно-красный */
+            color: #ffcc00; /* Золотой текст */
+            border: 1.5px solid #800000; /* Более темная рамка */
+            border-bottom: 3px solid #400000;
+            border-right: 3px solid #400000;
+            padding: 0.4rem 0.8rem;
             font-family: 'Press Start 2P', monospace;
-            text-shadow: 1px 1px #000;
+            text-shadow: 0.8px 0.8px #000;
             cursor: pointer;
             transition: all 0.1s ease-in-out;
-            border-radius: 4px;
-            font-size: 0.9rem; /* Немного уменьшен размер шрифта */
+            border-radius: 3px;
+            font-size: 0.65rem;
         }
 
         .button-retro:hover {
-            background-color: #9b5555;
-            border-top: 4px solid #a05050;
-            border-left: 4px solid #a05050;
-            border-bottom: 2px solid #603030;
-            border-right: 2px solid #603030;
+            background-color: #700000;
+            border-top: 3px solid #800000;
+            border-left: 3px solid #800000;
+            border-bottom: 1.5px solid #400000;
+            border-right: 1.5px solid #400000;
         }
 
         .button-retro:active {
-            background-color: #7a3a3a;
-            border: 4px solid #603030;
-            border-bottom: 2px solid #a05050;
-            border-right: 2px solid #a05050;
-            transform: translateY(2px);
+            background-color: #500000;
+            border: 3px solid #400000;
+            border-bottom: 1.5px solid #800000;
+            border-right: 1.5px solid #800000;
+            transform: translateY(1.5px);
         }
 
         .status-online {
@@ -134,9 +148,10 @@
         }
 
         .list-item {
-            margin-bottom: 0.4rem; /* Уменьшен отступ */
-            padding-left: 0.8rem; /* Уменьшен отступ */
+            margin-bottom: 0.2rem;
+            padding-left: 0.6rem;
             position: relative;
+            font-size: 0.7rem;
         }
 
         .list-item::before {
@@ -147,152 +162,206 @@
         }
 
         .mod-card, .block-card {
-            background-color: #5a3a3a;
-            border: 2px solid #7b4b4b;
-            padding: 0.8rem; /* Уменьшен отступ */
-            margin-bottom: 0.8rem; /* Уменьшен отступ */
-            border-radius: 4px;
-            box-shadow: 4px 4px #2a1a1a;
+            background-color: #2a2a2a; /* Более темный фон для карточек */
+            border: 1.5px solid #505050;
+            padding: 0.6rem;
+            margin-bottom: 0.6rem;
+            border-radius: 3px;
+            box-shadow: 3px 3px #000;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23444" surfaceScale="3" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLighting><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%232a2a2a" filter="url(%23f)"/></svg>');
+            background-size: cover;
         }
 
         .mod-card h3, .block-card h3 {
             color: #ffcc00;
-            margin-bottom: 0.4rem; /* Уменьшен отступ */
+            margin-bottom: 0.2rem;
         }
 
         .footer {
-            margin-top: 1.5rem; /* Уменьшен отступ */
-            padding-top: 0.8rem; /* Уменьшен отступ */
-            border-top: 2px dashed #6b3b3b;
+            margin-top: 0.75rem;
+            padding-top: 0.5rem;
+            border-top: 1.5px dashed #404040;
             text-align: center;
-            font-size: 0.75rem; /* Немного уменьшен размер шрифта */
+            font-size: 0.55rem;
             color: #a0a0a0;
             width: 95%;
-            max-width: 1400px; /* Соответствует ширине page-container */
+            max-width: 750px;
         }
 
         .navbar {
-            background-color: #4a2a2a;
-            border: 4px solid #6b3b3b;
-            box-shadow: 8px 8px #1a0a0a;
-            padding: 0.8rem 1.5rem; /* Уменьшен отступ */
-            margin-bottom: 1.5rem; /* Уменьшен отступ */
-            border-radius: 8px;
+            background-color: #1a1a1a; /* Очень темный фон */
+            border: 3px solid #404040;
+            box-shadow: 6px 6px #000;
+            padding: 0.6rem 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 4px;
             width: 95%;
-            max-width: 1400px; /* Соответствует ширине page-container */
+            max-width: 750px;
             display: flex;
             justify-content: center;
-            gap: 1.5rem; /* Уменьшен промежуток */
+            gap: 0.75rem;
             flex-wrap: wrap;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23553311" surfaceScale="2" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLight><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%231a1a1a" filter="url(%23f)"/></svg>');
+            background-size: cover;
         }
 
         .navbar a {
-            color: #ffcc00;
+            color: #ffcc00; /* Золотой */
             text-decoration: none;
-            padding: 0.4rem 0.8rem; /* Уменьшен отступ */
-            border: 2px solid #ffcc00;
-            border-radius: 4px;
+            padding: 0.25rem 0.6rem;
+            border: 1.5px solid #ffcc00;
+            border-radius: 3px;
             transition: all 0.1s ease-in-out;
-            text-shadow: 1px 1px #000;
-            font-size: 0.9rem; /* Немного уменьшен размер шрифта */
+            text-shadow: 0.8px 0.8px #000;
+            font-size: 0.65rem;
         }
 
         .navbar a:hover {
             background-color: #ffcc00;
-            color: #4a2a2a;
+            color: #1a1a1a; /* Темный фон при наведении */
             text-shadow: none;
         }
 
         .sidebar-section {
-            background-color: #5a3a3a;
-            border: 2px solid #7b4b4b;
-            padding: 1rem; /* Уменьшен вертикальный отступ */
-            margin-bottom: 1rem; /* Уменьшен отступ */
-            border-radius: 4px;
-            box-shadow: 4px 4px #2a1a1a;
+            background-color: #2a2a2a; /* Темнее красный */
+            border: 1.5px solid #505050;
+            padding: 0.7rem;
+            margin-bottom: 0.7rem;
+            border-radius: 3px;
+            box-shadow: 3px 3px #000;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23444" surfaceScale="3" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLighting><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%232a2a2a" filter="url(%23f)"/></svg>');
+            background-size: cover;
         }
 
         .sidebar-section h3 {
-            color: #ffcc00;
-            margin-bottom: 0.8rem; /* Уменьшен отступ */
-            font-size: 1.1rem; /* Немного уменьшен размер шрифта */
+            color: #ffcc00; /* Золотой */
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .sidebar-section ul li {
+            font-size: 0.7rem;
+            margin-bottom: 0.2rem;
         }
 
         .sidebar-link {
             display: block;
-            background-color: #8b4545;
-            color: #fff;
-            padding: 0.6rem; /* Уменьшен отступ */
-            margin-bottom: 0.4rem; /* Уменьшен отступ */
+            background-color: #600000; /* Темно-красный */
+            color: #ffcc00; /* Золотой */
+            padding: 0.4rem;
+            margin-bottom: 0.25rem;
             text-align: center;
             text-decoration: none;
-            border: 2px solid #a05050;
-            border-bottom: 4px solid #603030;
-            border-right: 4px solid #603030;
-            border-radius: 4px;
+            border: 1.5px solid #800000;
+            border-bottom: 3px solid #400000;
+            border-right: 3px solid #400000;
+            border-radius: 3px;
             transition: all 0.1s ease-in-out;
-            text-shadow: 1px 1px #000;
-            font-size: 0.85rem; /* Немного уменьшен размер шрифта */
+            text-shadow: 0.8px 0.8px #000;
+            font-size: 0.6rem;
         }
 
         .back-button {
             position: absolute;
-            top: 0.8rem; /* Уменьшен отступ */
-            left: 0.8rem; /* Уменьшен отступ */
-            background-color: #8b4545;
-            color: #fff;
-            border: 2px solid #a05050;
-            border-bottom: 4px solid #603030;
-            border-right: 4px solid #603030;
-            padding: 0.4rem 0.8rem; /* Уменьшен отступ */
+            top: 0.5rem;
+            left: 0.5rem;
+            background-color: #600000; /* Темно-красный */
+            color: #ffcc00; /* Золотой */
+            border: 1.5px solid #800000;
+            border-bottom: 3px solid #400000;
+            border-right: 3px solid #400000;
+            padding: 0.25rem 0.6rem;
             font-family: 'Press Start 2P', monospace;
-            text-shadow: 1px 1px #000;
+            text-shadow: 0.8px 0.8px #000;
             cursor: pointer;
             transition: all 0.1s ease-in-out;
-            border-radius: 4px;
+            border-radius: 3px;
             z-index: 10;
-            font-size: 0.85rem; /* Немного уменьшен размер шрифта */
+            font-size: 0.6rem;
         }
 
         .back-button:hover {
-            background-color: #9b5555;
-            border-top: 4px solid #a05050;
-            border-left: 4px solid #a05050;
-            border-bottom: 2px solid #603030;
-            border-right: 2px solid #603030;
+            background-color: #700000;
+            border-top: 3px solid #800000;
+            border-left: 3px solid #800000;
+            border-bottom: 1.5px solid #400000;
+            border-right: 1.5px solid #400000;
         }
 
         .back-button:active {
-            background-color: #7a3a3a;
-            border: 4px solid #603030;
-            border-bottom: 2px solid #a05050;
-            border-right: 2px solid #a05050;
-            transform: translateY(2px);
+            background-color: #500000;
+            border: 3px solid #400000;
+            border-bottom: 1.5px solid #800000;
+            border-right: 1.5px solid #800000;
+            transform: translateY(1.5px);
+        }
+
+        /* Уведомление о копировании */
+        #copy-notification {
+            position: fixed;
+            top: -100px; /* Скрыто сверху */
+            right: 1rem;
+            background-color: #1a1a1a; /* Темный фон */
+            color: #ffcc00; /* Золотой текст */
+            padding: 1rem 1.5rem; /* Увеличена высота */
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            font-family: 'Press Start 2P', monospace;
+            font-size: 0.8rem;
+            z-index: 1000;
+            transition: top 0.5s ease-out, opacity 0.5s ease-out;
+            opacity: 0;
+            border: 2px solid #505050; /* Темная металлическая рамка */
+            background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23444" surfaceScale="2" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLighting><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%231a1a1a" filter="url(%23f)"/></svg>');
+            background-size: cover;
+        }
+
+        #copy-notification.show {
+            top: 1rem;
+            opacity: 1;
+        }
+
+        /* Стили для конкретных блоков сайдбара */
+        #server-status.sidebar-section {
+            padding-top: 0.15rem; /* Еще уменьшаем высоту */
+            padding-bottom: 0.15rem;
+        }
+
+        #info-section.sidebar-section {
+            padding-top: 1rem; /* Увеличиваем высоту */
+            padding-bottom: 1rem;
         }
 
         /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
+            body {
+                font-size: 0.65rem; /* Базовый размер шрифта для мобильных */
+            }
             .page-container {
-                padding: 0.8rem; /* Еще уменьшен отступ на мобильных */
-                margin-top: 1rem;
-                margin-bottom: 1rem;
+                padding: 0.4rem;
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
             }
 
             h1 {
-                font-size: 1.5rem; /* Уменьшен размер шрифта на мобильных */
+                font-size: 0.9rem;
             }
 
             h2 {
-                font-size: 1.2rem;
+                font-size: 0.7rem;
             }
 
             h3 {
-                font-size: 1rem;
+                font-size: 0.6rem;
+            }
+
+            p {
+                font-size: 0.65rem;
             }
 
             .button-retro, .navbar a, .sidebar-link, .back-button {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
+                padding: 0.2rem 0.4rem;
+                font-size: 0.5rem;
             }
 
             .grid-cols-2 {
@@ -300,16 +369,24 @@
             }
 
             .sidebar-section {
-                padding: 0.8rem;
-                margin-bottom: 0.8rem;
+                padding: 0.4rem;
+                margin-bottom: 0.4rem;
             }
 
             .list-item {
-                font-size: 0.9rem;
+                font-size: 0.6rem;
             }
 
             .footer {
+                font-size: 0.45rem;
+            }
+
+            #copy-notification {
+                right: 0.5rem;
+                left: 0.5rem;
+                text-align: center;
                 font-size: 0.7rem;
+                padding: 0.75rem 1rem; /* Адаптация padding для мобильных */
             }
         }
     </style>
@@ -317,7 +394,7 @@
 <body class="flex flex-col items-center p-4 md:p-8">
     <header class="text-center mb-8">
         <h1 class="text-4xl md:text-5xl mb-4">Pure Lunacy</h1>
-        <p class="text-lg md:text-xl">ТЕХНИЧЕСКИЙ МАЙНКРАФТ СЕРВЕР</p>
+        <p class class="text-lg md:text-xl">ТЕХНИЧЕСКИЙ МАЙНКРАФТ СЕРВЕР</p>
     </header>
 
     <nav class="navbar">
@@ -333,8 +410,8 @@
         <div class="main-content-area flex flex-col lg:flex-row gap-8">
             <div class="content-left flex-3">
                 <h2 class="text-3xl mb-4">Добро пожаловать в мир технологий</h2>
-                <div class="bg-red-800 border-4 border-red-900 shadow-lg p-4 mb-8 text-center" style="height: 200px; display: flex; align-items: center; justify-content: center;">
-                    <span class="text-2xl text-white">Изображение сервера</span>
+                <div class="bg-red-800 border-4 border-red-900 shadow-lg p-4 mb-8 text-center" style="height: 80px; display: flex; align-items: center; justify-content: center; background-color: #202020; border-color: #404040; box-shadow: 4px 4px #000;">
+                    <span class="text-lg text-white">Изображение сервера</span>
                 </div>
                 <p class="mb-4">
                     Исследуйте мир промышленных технологий, создавайте сложные механизмы и
@@ -368,12 +445,12 @@
                         Онлайн: <span id="players-online">0</span>/100
                     </div>
                     <p class="text-center text-sm mb-4">
-                        IP: <span class="text-green-400">play.вашсервер.com</span>
+                        IP: <span class="text-green-400" id="server-ip">play.PureLunacy.com</span>
                     </p>
                     <button id="refresh-status-btn" class="button-retro w-full">Подключиться</button>
                 </section>
 
-                <section class="sidebar-section">
+                <section id="info-section" class="sidebar-section">
                     <h3>Информация</h3>
                     <ul class="list-none p-0 text-base">
                         <li class="mb-2"><span class="text-orange-300">></span> Версия: <span class="float-right">1.20.1</span></li>
@@ -385,17 +462,17 @@
 
                 <section class="sidebar-section">
                     <h3>Новости</h3>
-                    <div class="mb-4">
-                        <p class="text-sm text-gray-400">25.07.2025</p>
-                        <p>Добавлены новые промышленные машины</p>
+                    <div class="mb-3">
+                        <p class="text-sm text-gray-400" style="font-size: 0.65rem;">25.07.2025</p>
+                        <p style="font-size: 0.7rem;">Добавлены новые промышленные машины</p>
                     </div>
-                    <div class="mb-4">
-                        <p class="text-sm text-gray-400">20.07.2025</p>
-                        <p>Обновление системы автоматизации</p>
+                    <div class="mb-3">
+                        <p class="text-sm text-gray-400" style="font-size: 0.65rem;">20.07.2025</p>
+                        <p style="font-size: 0.7rem;">Обновление системы автоматизации</p>
                     </div>
                     <div>
-                        <p class="text-sm text-gray-400">15.07.2025</p>
-                        <p>Новый биом: Индустриальная пустошь</p>
+                        <p class="text-sm text-gray-400" style="font-size: 0.65rem;">15.07.2025</p>
+                        <p style="font-size: 0.7rem;">Новый биом: Индустриальная пустошь</p>
                     </div>
                 </section>
 
@@ -435,7 +512,7 @@
         <p>
             Присоединяйтесь к нам и начните свое путешествие уже сегодня!
             <br>
-            IP-адрес сервера: <span class="text-green-400">play.вашсервер.com</span>
+            IP-адрес сервера: <span class="text-green-400">play.PureLunacy.com</span>
         </p>
     </div>
 
@@ -501,11 +578,16 @@
         </div>
     </footer>
 
+    <!-- Уведомление о копировании IP -->
+    <div id="copy-notification">Сервер скопирован!</div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const statusText = document.getElementById('status-text');
             const playersOnline = document.getElementById('players-online');
             const refreshButton = document.getElementById('refresh-status-btn');
+            const serverIpElement = document.getElementById('server-ip');
+            const copyNotification = document.getElementById('copy-notification');
 
             const pageContainers = document.querySelectorAll('.page-container');
             const mainWrapper = document.getElementById('main-wrapper');
@@ -544,10 +626,28 @@
                 window.scrollTo(0, 0);
             }
 
+            function showCopyNotification() {
+                copyNotification.classList.add('show');
+                setTimeout(() => {
+                    copyNotification.classList.remove('show');
+                }, 3000);
+            }
+
             updateServerStatus();
             showPage('main-wrapper');
 
-            refreshButton.addEventListener('click', updateServerStatus);
+            refreshButton.addEventListener('click', () => {
+                const ipToCopy = serverIpElement.textContent;
+                const tempInput = document.createElement('textarea');
+                tempInput.value = ipToCopy;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                showCopyNotification();
+                updateServerStatus();
+            });
 
             navHomeButton.addEventListener('click', (e) => {
                 e.preventDefault();
