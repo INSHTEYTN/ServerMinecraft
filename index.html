@@ -3,272 +3,556 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сервер Minecraft</title>
+    <title>Pure Lunacy: Технический Майнкрафт Сервер</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.cdnfonts.com/css/minecraft-rus-new');
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
         body {
-            font-family: 'Minecraft Rus NEW', sans-serif;
-            background-image: url('https://i.pinimg.com/1200x/39/4f/6d/394f6db7bf72c0202c845323541813e7.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-            min-height: 100vh;
+            font-family: 'Press Start 2P', monospace;
+            background: linear-gradient(180deg, #3a1a1a 0%, #2a0a0a 100%);
+            color: #d4c09e;
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
-            color: white;
+            align-items: center;
+            min-height: 100vh;
+            text-shadow: 2px 2px #000;
         }
+
+        .page-container {
+            max-width: 1200px;
+            width: 95%;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            background-color: #4a2a2a;
+            border: 4px solid #6b3b3b;
+            box-shadow: 8px 8px #1a0a0a;
+            padding: 2rem;
+            border-radius: 8px;
+            position: relative;
+            display: none; /* Скрыто по умолчанию, будет управляться JS */
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Главная страница отображается по умолчанию */
+        #main-wrapper {
+            display: flex;
+        }
+
+        @media (min-width: 1024px) {
+            .main-wrapper .main-content-area {
+                display: flex;
+                flex-direction: row;
+                gap: 2rem;
+            }
+            .main-wrapper .main-content-area .content-left {
+                flex: 3;
+            }
+            .main-wrapper .main-content-area .sidebar {
+                flex: 1;
+            }
+        }
+
         .sidebar {
-            transition: transform 0.3s ease-out;
-            transform: translateX(-100%);
+            background-color: #4a2a2a;
+            border: 4px solid #6b3b3b;
+            box-shadow: 8px 8px #1a0a0a;
+            padding: 2rem;
+            border-radius: 8px;
         }
-        .sidebar.open {
-            transform: translateX(0);
+
+        h1 {
+            color: #ffcc00;
+            text-shadow: 4px 4px #000;
+            margin-bottom: 1rem;
         }
-        .menu-button {
-            background-color: transparent;
-            border: none;
-            @apply block w-full text-left px-4 py-3 text-lg text-white hover:bg-yellow-600 transition-colors duration-300;
-            border-radius: 75px;
+
+        h2, h3 {
+            color: #ffaa00;
+            text-shadow: 3px 3px #000;
+            margin-bottom: 1rem;
         }
-        .glass-button {
-            background-color: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border-radius: 75px;
+
+        .section-title {
+            border-bottom: 2px dashed #6b3b3b;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
         }
-        .glass-button:hover {
-            background-color: rgba(255, 255, 255, 0.25);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        .button-retro {
+            background-color: #8b4545;
+            color: #fff;
+            border: 2px solid #a05050;
+            border-bottom: 4px solid #603030;
+            border-right: 4px solid #603030;
+            padding: 0.75rem 1.5rem;
+            font-family: 'Press Start 2P', monospace;
+            text-shadow: 1px 1px #000;
+            cursor: pointer;
+            transition: all 0.1s ease-in-out;
+            border-radius: 4px;
         }
-        #menu-toggle, #close-menu {
-            border-radius: 75px;
+
+        .button-retro:hover {
+            background-color: #9b5555;
+            border-top: 4px solid #a05050;
+            border-left: 4px solid #a05050;
+            border-bottom: 2px solid #603030;
+            border-right: 2px solid #603030;
         }
-        .content-section .guide-button {
-            border-radius: 75px;
+
+        .button-retro:active {
+            background-color: #7a3a3a;
+            border: 4px solid #603030;
+            border-bottom: 2px solid #a05050;
+            border-right: 2px solid #a05050;
+            transform: translateY(2px);
         }
-        main {
-            padding-top: 0;
+
+        .status-online {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .status-offline {
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        .list-item {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .list-item::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: #ffaa00;
+        }
+
+        .mod-card, .block-card {
+            background-color: #5a3a3a;
+            border: 2px solid #7b4b4b;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            box-shadow: 4px 4px #2a1a1a;
+        }
+
+        .mod-card h3, .block-card h3 {
+            color: #ffcc00;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 2px dashed #6b3b3b;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #a0a0a0;
+            width: 95%;
+            max-width: 1200px;
+        }
+
+        .navbar {
+            background-color: #4a2a2a;
+            border: 4px solid #6b3b3b;
+            box-shadow: 8px 8px #1a0a0a;
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            width: 95%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .navbar a {
+            color: #ffcc00;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid #ffcc00;
+            border-radius: 4px;
+            transition: all 0.1s ease-in-out;
+            text-shadow: 1px 1px #000;
+        }
+
+        .navbar a:hover {
+            background-color: #ffcc00;
+            color: #4a2a2a;
+            text-shadow: none;
+        }
+
+        .sidebar-section {
+            background-color: #5a3a3a;
+            border: 2px solid #7b4b4b;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 4px 4px #2a1a1a;
+        }
+
+        .sidebar-section h3 {
+            color: #ffcc00;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .sidebar-link {
+            display: block;
+            background-color: #8b4545;
+            color: #fff;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            text-decoration: none;
+            border: 2px solid #a05050;
+            border-bottom: 4px solid #603030;
+            border-right: 4px solid #603030;
+            border-radius: 4px;
+            transition: all 0.1s ease-in-out;
+            text-shadow: 1px 1px #000;
+        }
+
+        .sidebar-link:hover {
+            background-color: #9b5555;
+            border-top: 4px solid #a05050;
+            border-left: 4px solid #a05050;
+            border-bottom: 2px solid #603030;
+            border-right: 2px solid #603030;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background-color: #8b4545;
+            color: #fff;
+            border: 2px solid #a05050;
+            border-bottom: 4px solid #603030;
+            border-right: 4px solid #603030;
+            padding: 0.5rem 1rem;
+            font-family: 'Press Start 2P', monospace;
+            text-shadow: 1px 1px #000;
+            cursor: pointer;
+            transition: all 0.1s ease-in-out;
+            border-radius: 4px;
+            z-index: 10;
+        }
+
+        .back-button:hover {
+            background-color: #9b5555;
+            border-top: 4px solid #a05050;
+            border-left: 4px solid #a05050;
+            border-bottom: 2px solid #603030;
+            border-right: 2px solid #603030;
+        }
+
+        .back-button:active {
+            background-color: #7a3a3a;
+            border: 4px solid #603030;
+            border-bottom: 2px solid #a05050;
+            border-right: 2px solid #a05050;
+            transform: translateY(2px);
+        }
+
+        @media (max-width: 768px) {
+            .page-container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .button-retro, .navbar a, .sidebar-link, .back-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
-<body class="text-white min-h-screen flex flex-col">
-
-    <header class="bg-gray-900 bg-opacity-70 p-4 shadow-lg rounded-b-xl mx-4 mt-4 border-b-4 border-yellow-500 relative z-20">
-        <div class="container mx-auto flex justify-between items-center">
-            <button id="menu-toggle" class="text-white focus:outline-none p-2 hover:bg-gray-700 transition-colors duration-300 glass-button">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-            <h1 class="text-4xl font-bold text-yellow-400">
-                Name Server
-            </h1>
-            <button id="donate-button-header" class="hidden md:block px-6 py-2 text-white font-bold shadow-md transition-colors duration-300 glass-button">
-                Донат
-            </button>
-        </div>
+<body class="flex flex-col items-center p-4 md:p-8">
+    <header class="text-center mb-8">
+        <h1 class="text-4xl md:text-5xl mb-4">Pure Lunacy</h1>
+        <p class="text-lg md:text-xl">ТЕХНИЧЕСКИЙ МАЙНКРАФТ СЕРВЕР</p>
     </header>
 
-    <aside id="sidebar" class="sidebar fixed top-0 left-0 h-full w-64 bg-gray-900 bg-opacity-95 shadow-2xl z-30 flex flex-col pt-20">
-        <nav class="flex-grow">
-            <ul class="space-y-2 p-4">
-                <li><button class="menu-button" data-target="home-content">Главная</button></li>
-                <li><button class="menu-button" data-target="rules-content">Правила</button></li>
-                <li><button class="menu-button" data-target="guides-content">Гайды</button></li>
-                <li><button class="menu-button" data-target="items-content">Предметы</button></li>
-                <li><button class="menu-button" data-target="blocks-content">Блоки</button></li>
-                <li><button class="menu-button" data-target="donate-content">Донат</button></li>
-            </ul>
-        </nav>
-        <button id="close-menu" class="absolute top-4 right-4 text-white focus:outline-none p-2 hover:bg-gray-700 transition-colors duration-300 glass-button">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
-    </aside>
+    <nav class="navbar">
+        <a href="#" id="nav-home">ГЛАВНАЯ</a>
+        <a href="#" id="nav-about">МИР</a>
+        <a href="#" id="nav-mods">КРАФТЫ</a>
+        <a href="#" id="nav-blocks">ПРЕДМЕТЫ</a>
+        <a href="#" id="nav-rules">ПРАВИЛА</a>
+    </nav>
 
-    <main class="container mx-auto p-4 flex-grow relative z-10">
-        <section id="home-content" class="content-section bg-gray-800 bg-opacity-70 p-6 mb-8 rounded-lg shadow-xl border-4 border-yellow-500">
-            <h2 class="text-3xl font-semibold text-yellow-400 mb-4">Информация о сервере</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-lg text-gray-200">
-                <p><strong class="text-green-500">Статус:</strong> <span class="text-green-600">Онлайн</span></p>
-                <p><strong class="text-green-500">IP сервера:</strong> <span class="text-yellow-400">play.yourminecraftserver.com</span></p>
-                <p><strong class="text-green-500">Игроков онлайн:</strong> <span class="text-red-700">15 / 100</span></p>
-                <div class="md:col-span-2">
-                    <h3 class="text-xl font-bold text-yellow-400 mt-4 mb-2">Моды:</h3>
-                    <p class="text-gray-200">Custom Biomes, Economy, Land Claims, PvP Arena</p>
+    <!-- Главная страница -->
+    <div id="main-wrapper" class="page-container">
+        <div class="main-content-area flex flex-col lg:flex-row gap-8">
+            <div class="content-left flex-3">
+                <h2 class="text-3xl mb-4">Добро пожаловать в мир технологий</h2>
+                <div class="bg-red-800 border-4 border-red-900 shadow-lg p-4 mb-8 text-center" style="height: 250px; display: flex; align-items: center; justify-content: center;">
+                    <span class="text-2xl text-white">Изображение сервера</span>
                 </div>
-                <div class="md:col-span-2">
-                    <h3 class="text-xl font-bold text-yellow-400 mt-4 mb-2">Последние новости об обновлении на сервере:</h3>
-                    <p class="text-gray-200">
-                        <strong class="text-red-700">25 июля 2025:</strong> Установлено новое обновление плагина экономики, добавлены новые предметы для торговли. Исправлены мелкие ошибки с приватами.
+                <p class="mb-4">
+                    Исследуйте мир промышленных технологий, создавайте сложные механизмы и
+                    автоматизируйте производство. Наш сервер предлагает уникальный игровой опыт с
+                    модифицированными рецептами и новыми возможностями.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <div class="mod-card text-center">
+                        <h3>Промышленность</h3>
+                        <p>Сложные производственные цепочки</p>
+                    </div>
+                    <div class="mod-card text-center">
+                        <h3>Автоматизация</h3>
+                        <p>Создавайте умные фабрики</p>
+                    </div>
+                    <div class="mod-card text-center">
+                        <h3>Технологии</h3>
+                        <p>Продвинутые машины и механизмы</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar flex-1">
+                <section id="server-status" class="sidebar-section">
+                    <h3>Статус сервера</h3>
+                    <div class="text-lg mb-2 text-center">
+                        <span id="status-text" class="status-offline">Загрузка...</span>
+                    </div>
+                    <div class="text-lg mb-4 text-center">
+                        Онлайн: <span id="players-online">0</span>/100
+                    </div>
+                    <p class="text-center text-sm mb-4">
+                        IP: <span class="text-green-400">play.вашсервер.com</span>
                     </p>
-                    <p class="text-gray-200 mt-2">
-                        <strong class="text-red-700">18 июля 2025:</strong> Добавлены новые биомы в мир исследования. Обновлены правила PvP зоны.
-                    </p>
-                </div>
+                    <button id="refresh-status-btn" class="button-retro w-full">Подключиться</button>
+                </section>
+
+                <section class="sidebar-section">
+                    <h3>Информация</h3>
+                    <ul class="list-none p-0 text-base">
+                        <li class="mb-2"><span class="text-orange-300">></span> Версия: <span class="float-right">1.20.1</span></li>
+                        <li class="mb-2"><span class="text-orange-300">></span> Моды: <span class="float-right">Industrial, Tech, Automation</span></li>
+                        <li class="mb-2"><span class="text-orange-300">></span> Режим: <span class="float-right">Survival+</span></li>
+                        <li class="mb-2"><span class="text-orange-300">></span> Сложность: <span class="float-right">Средняя</span></li>
+                    </ul>
+                </section>
+
+                <section class="sidebar-section">
+                    <h3>Новости</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-400">25.07.2025</p>
+                        <p>Добавлены новые промышленные машины</p>
+                    </div>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-400">20.07.2025</p>
+                        <p>Обновление системы автоматизации</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-400">15.07.2025</p>
+                        <p>Новый биом: Индустриальная пустошь</p>
+                    </div>
+                </section>
+
+                <section class="sidebar-section">
+                    <h3>Сообщество</h3>
+                    <a href="#" class="sidebar-link">Discord</a>
+                    <a href="#" class="sidebar-link">Telegram</a>
+                    <a href="#" class="sidebar-link">VKontakte</a>
+                </section>
             </div>
+        </div>
+    </div>
 
-            <div class="bg-gray-700 bg-opacity-80 p-6 mt-8 rounded-lg shadow-md border-2 border-yellow-400 text-center">
-                <h3 class="text-2xl font-bold text-green-500 mb-4">Присоединяйтесь к нашему сообществу!</h3>
-                <p class="text-gray-200 mb-6">Общайтесь с другими игроками, получайте поддержку и будьте в курсе всех новостей на нашем Discord-сервере.</p>
-                <a href="https://discord.gg/yourdiscordinvite" target="_blank" class="inline-block px-8 py-4 text-white font-bold shadow-md glass-button !bg-[#5865F2] hover:!bg-[#4F5BDB]">
-                    Discord
-                </a>
+    <!-- Страница Правил -->
+    <div id="rules-page" class="page-container">
+        <button class="back-button" data-target-page="main-wrapper">НАЗАД</button>
+        <h2 class="text-2xl section-title text-center mt-12">Правила Сервера</h2>
+        <ul class="list-none p-0">
+            <li class="list-item">Уважайте других игроков. Троллинг, оскорбления и агрессивное поведение запрещены.</li>
+            <li class="list-item">Запрещено использование читов, эксплойтов и стороннего ПО, дающего несправедливое преимущество.</li>
+            <li class="list-item">Не гриферьте и не разрушайте постройки других игроков без их разрешения.</li>
+            <li class="list-item">Спам в чате и флуд запрещены.</li>
+            <li class="list-item">Не используйте неприемлемые никнеймы или названия построек.</li>
+            <li class="list-item">Следуйте указаниям администрации сервера.</li>
+        </ul>
+    </div>
+
+    <!-- Страница "О нас" (МИР) -->
+    <div id="about-page" class="page-container">
+        <button class="back-button" data-target-page="main-wrapper">НАЗАД</button>
+        <h2 class="text-2xl section-title text-center mt-12">О нас (МИР)</h2>
+        <p class="mb-4">
+            Наш сервер Minecraft предлагает уникальный опыт выживания и строительства в дружелюбной атмосфере.
+            Мы стремимся создать сообщество, где каждый игрок может найти что-то для себя, будь то исследование,
+            строительство эпических сооружений или участие в захватывающих приключениях.
+        </p>
+        <p>
+            Присоединяйтесь к нам и начните свое путешествие уже сегодня!
+            <br>
+            IP-адрес сервера: <span class="text-green-400">play.вашсервер.com</span>
+        </p>
+    </div>
+
+    <!-- Страница Модов (КРАФТЫ) -->
+    <div id="mods-page" class="page-container">
+        <button class="back-button" data-target-page="main-wrapper">НАЗАД</button>
+        <h2 class="text-2xl section-title text-center mt-12">Установленные Моды (КРАФТЫ)</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="mod-card">
+                <h3>IndustrialCraft 2</h3>
+                <p>Добавляет в игру множество новых механизмов, электроники и ресурсов для промышленного развития.</p>
             </div>
-        </section>
-
-        <section id="rules-content" class="content-section bg-gray-800 bg-opacity-70 p-6 mb-8 rounded-lg shadow-xl border-4 border-yellow-500 hidden">
-            <h2 class="text-3xl font-semibold text-yellow-400 mb-4">Правила сервера</h2>
-            <ul class="list-disc list-inside text-gray-200 space-y-2">
-                <li>Уважительное отношение ко всем игрокам. Запрещены оскорбления и разжигание конфликтов.</li>
-                <li>Запрещено использование читов, багов и стороннего ПО, дающего преимущество.</li>
-                <li>Запрещен гриферство и порча чужих построек. Используйте приваты!</li>
-                <li>Не распространяйте спам и рекламу в чате.</li>
-                <li>Администрация всегда права. Решения администрации не обсуждаются.</li>
-                <li>Нарушение правил может привести к бану или муту.</li>
-            </ul>
-        </section>
-
-        <section id="guides-content" class="content-section bg-gray-800 bg-opacity-70 p-6 mb-8 rounded-lg shadow-xl border-4 border-yellow-500 hidden">
-            <h2 class="text-3xl font-semibold text-yellow-400 mb-4">Гайды</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-gray-700 bg-opacity-80 p-4 rounded-md shadow-md border-2 border-yellow-400">
-                    <h3 class="text-xl font-bold text-green-500 mb-2">Как начать играть на сервере</h3>
-                    <p class="text-gray-200 text-sm">Подробное руководство для новичков: как подключиться, получить стартовый набор и начать выживание.</p>
-                    <a href="#" class="inline-block mt-4 px-4 py-2 text-white font-bold shadow-md glass-button guide-button">Читать гайд</a>
-                </div>
-                <div class="bg-gray-700 bg-opacity-80 p-4 rounded-md shadow-md border-2 border-yellow-400">
-                    <h3 class="text-xl font-bold text-red-700 mb-2">Система приватов</h3>
-                    <p class="text-gray-200 text-sm">Узнайте, как защитить свои постройки от гриферства с помощью нашей системы приватов.</p>
-                    <a href="#" class="inline-block mt-4 px-4 py-2 text-white font-bold shadow-md glass-button guide-button">Читать гайд</a>
-                </div>
+            <div class="mod-card">
+                <h3>BuildCraft</h3>
+                <p>Позволяет автоматизировать добычу ресурсов, транспортировку предметов и строительство с помощью труб и карьеров.</p>
             </div>
-        </section>
-
-        <section id="items-content" class="content-section bg-gray-800 bg-opacity-70 p-6 mb-8 rounded-lg shadow-xl border-4 border-yellow-500 hidden">
-            <h2 class="text-3xl font-semibold text-yellow-400 mb-4">Предметы сервера</h2>
-            <p class="text-gray-200 mb-4">Здесь вы найдете информацию о кастомных предметах, доступных на нашем сервере.</p>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                <div class="bg-gray-700 bg-opacity-80 p-3 rounded-md shadow-md border-2 border-yellow-400">
-                    <img src="https://placehold.co/80x80/4CAF50/FFFFFF?text=Руда" alt="Кастомная руда" class="mx-auto mb-2 rounded-lg">
-                    <p class="text-green-500 font-bold">Энергетическая руда</p>
-                    <p class="text-gray-300 text-sm">Редкий ресурс для крафта мощных инструментов.</p>
-                </div>
-                <div class="bg-gray-700 bg-opacity-80 p-3 rounded-md shadow-md border-2 border-yellow-400">
-                    <img src="https://placehold.co/80x80/FF5722/FFFFFF?text=Меч" alt="Кастомный меч" class="mx-auto mb-2 rounded-lg">
-                    <p class="text-red-700 font-bold">Огненный меч</p>
-                    <p class="text-gray-300 text-sm">Наносит дополнительный урон огнем.</p>
-                </div>
-                <div class="bg-gray-700 bg-opacity-80 p-3 rounded-md shadow-md border-2 border-yellow-400">
-                    <img src="https://placehold.co/80x80/2196F3/FFFFFF?text=Зелье" alt="Кастомное зелье" class="mx-auto mb-2 rounded-lg">
-                    <p class="text-blue-500 font-bold">Зелье телепортации</p>
-                    <p class="text-gray-300 text-sm">Мгновенно перемещает вас в случайное место.</p>
-                </div>
+            <div class="mod-card">
+                <h3>Twilight Forest</h3>
+                <p>Открывает новое измерение с уникальными биомами, мобами и сокровищами для исследования.</p>
             </div>
-        </section>
-
-        <section id="blocks-content" class="content-section bg-gray-800 bg-opacity-70 p-6 mb-8 rounded-lg shadow-xl border-4 border-yellow-500 hidden">
-            <h2 class="text-3xl font-semibold text-yellow-400 mb-4">Блоки сервера</h2>
-            <p class="text-gray-200 mb-4">Здесь вы найдете информацию о кастомных блоках, доступных на нашем сервере.</p>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                <div class="bg-gray-700 bg-opacity-80 p-3 rounded-md shadow-md border-2 border-yellow-400">
-                    <img src="https://placehold.co/80x80/8B4513/FFFFFF?text=Блок" alt="Кастомный блок" class="mx-auto mb-2 rounded-lg">
-                    <p class="text-yellow-400 font-bold">Укрепленный камень</p>
-                    <p class="text-gray-300 text-sm">Очень прочный блок, устойчивый к взрывам.</p>
-                </div>
-                <div class="bg-gray-700 bg-opacity-80 p-3 rounded-md shadow-md border-2 border-yellow-400">
-                    <img src="https://placehold.co/80x80/7CFC00/FFFFFF?text=Блок" alt="Кастомный блок" class="mx-auto mb-2 rounded-lg">
-                    <p class="text-lime-500 font-bold">Генератор ресурсов</p>
-                    <p class="text-gray-300 text-sm">Медленно генерирует ценные ресурсы.</p>
-                </div>
+            <div class="mod-card">
+                <h3>Applied Energistics 2</h3>
+                <p>Мод на хранение и обработку предметов и жидкостей в цифровом виде.</p>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <section id="donate-content" class="content-section bg-gray-800 bg-opacity-70 p-6 mb-8 rounded-lg shadow-xl border-4 border-yellow-500 hidden">
-            <h2 class="text-3xl font-semibold text-yellow-400 mb-4">Поддержать сервер (Донат)</h2>
-            <p class="text-gray-200 leading-relaxed mb-4">
-                Ваша поддержка помогает нам поддерживать сервер в рабочем состоянии, оплачивать хостинг, разрабатывать новые функции и проводить интересные события. Любой вклад очень ценится!
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-gray-700 bg-opacity-80 p-4 rounded-md shadow-md border-2 border-yellow-400">
-                    <h3 class="text-xl font-bold text-green-500 mb-2">VIP Статус</h3>
-                    <p class="text-gray-200 text-sm mb-4">Получите эксклюзивные привилегии, доступ к уникальным командам и предметам.</p>
-                    <button class="px-6 py-3 font-bold shadow-md glass-button">
-                        Купить VIP
-                    </button>
-                </div>
-                <div class="bg-gray-700 bg-opacity-80 p-4 rounded-md shadow-md border-2 border-yellow-400">
-                    <h3 class="text-xl font-bold text-red-700 mb-2">Наборы ресурсов</h3>
-                    <p class="text-gray-200 text-sm mb-4">Приобретайте наборы ценных ресурсов для быстрого старта и развития.</p>
-                    <button class="px-6 py-3 font-bold shadow-md glass-button">
-                        Купить набор
-                    </button>
-                </div>
+    <!-- Страница Блоков (ПРЕДМЕТЫ) -->
+    <div id="blocks-page" class="page-container">
+        <button class="back-button" data-target-page="main-wrapper">НАЗАД</button>
+        <h2 class="text-2xl section-title text-center mt-12">Уникальные Блоки (ПРЕДМЕТЫ)</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="block-card">
+                <h3>Усиленный Обсидиан</h3>
+                <p>Чрезвычайно прочный блок, устойчивый к взрывам и разрушению.</p>
+                <img src="https://placehold.co/128x128/4a4a4a/c0c0c0?text=Блок" alt="Изображение Усиленного Обсидиана" class="mx-auto mt-2 rounded w-full h-auto max-w-[128px]">
             </div>
-            <p class="text-gray-300 text-sm mt-6 text-center">
-                Все донаты обрабатываются безопасно. Спасибо за вашу поддержку!
-            </p>
-        </section>
-    </main>
+            <div class="block-card">
+                <h3>Энергетическое Ядро</h3>
+                <p>Источник огромного количества энергии для ваших механизмов.</p>
+                <img src="https://placehold.co/128x128/4a4a4a/c0c0c0?text=Ядро" alt="Изображение Энергетического Ядра" class="mx-auto mt-2 rounded w-full h-auto max-w-[128px]">
+            </div>
+            <div class="block-card">
+                <h3>Магический Алтарь</h3>
+                <p>Позволяет создавать мощные артефакты и заклинания.</p>
+                <img src="https://placehold.co/128x128/4a4a4a/c0c0c0?text=Алтарь" alt="Изображение Магического Алтаря" class="mx-auto mt-2 rounded w-full h-auto max-w-[128px]">
+            </div>
+            <div class="block-card">
+                <h3>Портальный Блок</h3>
+                <p>Используется для создания телепортов между локациями.</p>
+                <img src="https://placehold.co/128x128/4a4a4a/c0c0c0?text=Портал" alt="Изображение Портального Блока" class="mx-auto mt-2 rounded w-full h-auto max-w-[128px]">
+            </div>
+        </div>
+    </div>
 
-    <footer class="bg-gray-900 bg-opacity-70 p-4 mt-8 shadow-inner rounded-t-xl mx-4 mb-4 border-t-4 border-yellow-500 relative z-10">
-        <div class="container mx-auto text-center text-gray-400">
-            &copy; 2025 Сервер Minecraft. Все права защищены.
+    <footer class="footer">
+        <p>&copy; 2025 Pure Lunacy Server. Все права защищены.</p>
+        <p>Сделано с любовью к пикселям.</p>
+        <div class="flex justify-center gap-4 mt-2">
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Правила</a>
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Поддержка</a>
+            <a href="#" class="text-gray-400 hover:text-white text-sm">Донат</a>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.getElementById('menu-toggle');
-            const sidebar = document.getElementById('sidebar');
-            const closeMenu = document.getElementById('close-menu');
-            const contentSections = document.querySelectorAll('.content-section');
-            const menuButtons = document.querySelectorAll('.menu-button');
-            const donateButtonHeader = document.getElementById('donate-button-header');
+            const statusText = document.getElementById('status-text');
+            const playersOnline = document.getElementById('players-online');
+            const refreshButton = document.getElementById('refresh-status-btn');
 
-            function toggleSidebar() {
-                sidebar.classList.toggle('open');
+            const pageContainers = document.querySelectorAll('.page-container');
+            const mainWrapper = document.getElementById('main-wrapper');
+
+            const navHomeButton = document.getElementById('nav-home');
+            const navAboutButton = document.getElementById('nav-about');
+            const navModsButton = document.getElementById('nav-mods');
+            const navBlocksButton = document.getElementById('nav-blocks');
+            const navRulesButton = document.getElementById('nav-rules');
+
+            const backButtons = document.querySelectorAll('.back-button');
+
+            function updateServerStatus() {
+                const isOnline = Math.random() < 0.8;
+                let playerCount = 0;
+
+                if (isOnline) {
+                    statusText.textContent = 'ОНЛАЙН';
+                    statusText.classList.remove('status-offline');
+                    statusText.classList.add('status-online');
+                    playerCount = Math.floor(Math.random() * (50 - 5 + 1)) + 5;
+                } else {
+                    statusText.textContent = 'ОФФЛАЙН';
+                    statusText.classList.remove('status-online');
+                    statusText.classList.add('status-offline');
+                    playerCount = 0;
+                }
+                playersOnline.textContent = playerCount;
             }
 
-            function showContent(targetId) {
-                contentSections.forEach(section => {
-                    if (section.id === targetId) {
-                        section.classList.remove('hidden');
-                    } else {
-                        section.classList.add('hidden');
-                    }
+            function showPage(pageId) {
+                pageContainers.forEach(container => {
+                    container.style.display = 'none';
                 });
+                document.getElementById(pageId).style.display = 'flex';
+                window.scrollTo(0, 0);
             }
 
-            menuToggle.addEventListener('click', toggleSidebar);
+            updateServerStatus();
+            showPage('main-wrapper'); // Убедимся, что главная страница открыта по умолчанию
 
-            closeMenu.addEventListener('click', toggleSidebar);
+            refreshButton.addEventListener('click', updateServerStatus);
 
-            menuButtons.forEach(button => {
-                button.addEventListener('click', (event) => {
-                    const targetId = event.target.dataset.target;
-                    showContent(targetId);
-                    toggleSidebar();
-                });
+            navHomeButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPage('main-wrapper');
             });
 
-            if (donateButtonHeader) {
-                donateButtonHeader.addEventListener('click', () => {
-                    showContent('donate-content');
-                    if (sidebar.classList.contains('open')) {
-                        toggleSidebar();
-                    }
-                });
-            }
+            navAboutButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPage('about-page');
+            });
 
-            showContent('home-content');
-            console.log('Скрипт загружен и выполнен.');
+            navModsButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPage('mods-page');
+            });
+
+            navBlocksButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPage('blocks-page');
+            });
+
+            navRulesButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPage('rules-page');
+            });
+
+            backButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    showPage('main-wrapper');
+                });
+            });
         });
     </script>
 </body>
