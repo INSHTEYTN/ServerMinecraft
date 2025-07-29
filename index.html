@@ -22,7 +22,7 @@
             align-items: center;
             min-height: 100vh;
             text-shadow: 1px 1px #000;
-            font-size: 0.75rem;
+            font-size: 0.7rem; /* Базовый размер шрифта для всего тела */
         }
 
         .page-container {
@@ -78,26 +78,26 @@
             color: #ffcc00; /* Золотой для неонового свечения */
             text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ffcc00, 0 0 20px #ffcc00, 0 0 25px #ffcc00, 0 0 30px #ffcc00; /* Эффект неонового свечения */
             margin-bottom: 0.4rem;
-            font-size: 1.8rem;
+            font-size: 1.6rem; /* Уменьшен размер */
         }
 
         h2 {
             color: #ffaa00; /* Оранжево-золотой */
             text-shadow: 1px 1px #000;
             margin-bottom: 0.4rem;
-            font-size: 1.1rem;
+            font-size: 1rem; /* Уменьшен размер */
         }
 
         h3 {
             color: #ffaa00; /* Оранжево-золотой */
             text-shadow: 0.5px 0.5px #000;
             margin-bottom: 0.2rem;
-            font-size: 0.85rem;
+            font-size: 0.8rem; /* Уменьшен размер */
         }
 
         p {
-            font-size: 0.75rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.65rem; /* Явно задан меньший размер для параграфов */
+            margin-bottom: 0.4rem; /* Уменьшен отступ */
         }
 
         .section-title {
@@ -112,13 +112,13 @@
             border: 1.5px solid #800000; /* Более темная рамка */
             border-bottom: 3px solid #400000;
             border-right: 3px solid #400000;
-            padding: 0.4rem 0.8rem;
+            padding: 0.35rem 0.7rem; /* Уменьшен отступ */
             font-family: 'Press Start 2P', monospace;
             text-shadow: 0.8px 0.8px #000;
             cursor: pointer;
             transition: all 0.1s ease-in-out;
             border-radius: 3px;
-            font-size: 0.65rem;
+            font-size: 0.6rem; /* Уменьшен размер шрифта */
         }
 
         .button-retro:hover {
@@ -148,10 +148,10 @@
         }
 
         .list-item {
-            margin-bottom: 0.2rem;
-            padding-left: 0.6rem;
+            margin-bottom: 0.15rem; /* Уменьшен отступ */
+            padding-left: 0.5rem; /* Уменьшен отступ */
             position: relative;
-            font-size: 0.7rem;
+            font-size: 0.65rem; /* Уменьшен размер шрифта */
         }
 
         .list-item::before {
@@ -164,8 +164,8 @@
         .mod-card, .block-card {
             background-color: #2a2a2a; /* Более темный фон для карточек */
             border: 1.5px solid #505050;
-            padding: 0.6rem;
-            margin-bottom: 0.6rem;
+            padding: 0.5rem; /* Уменьшен отступ */
+            margin-bottom: 0.5rem; /* Уменьшен отступ */
             border-radius: 3px;
             box-shadow: 3px 3px #000;
             background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23444" surfaceScale="3" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLighting><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%232a2a2a" filter="url(%23f)"/></svg>');
@@ -174,7 +174,7 @@
 
         .mod-card h3, .block-card h3 {
             color: #ffcc00;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.15rem; /* Уменьшен отступ */
         }
 
         .footer {
@@ -182,7 +182,7 @@
             padding-top: 0.5rem;
             border-top: 1.5px dashed #404040;
             text-align: center;
-            font-size: 0.55rem;
+            font-size: 0.5rem; /* Уменьшен размер шрифта */
             color: #a0a0a0;
             width: 95%;
             max-width: 750px;
@@ -192,14 +192,14 @@
             background-color: #1a1a1a; /* Очень темный фон */
             border: 3px solid #404040;
             box-shadow: 6px 6px #000;
-            padding: 0.6rem 1rem;
+            padding: 0.5rem 0.8rem; /* Уменьшен отступ */
             margin-bottom: 0.75rem;
             border-radius: 4px;
             width: 95%;
             max-width: 750px;
             display: flex;
             justify-content: center;
-            gap: 0.75rem;
+            gap: 0.6rem; /* Уменьшен промежуток */
             flex-wrap: wrap;
             background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="3" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23553311" surfaceScale="2" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLight><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%231a1a1a" filter="url(%23f)"/></svg>');
             background-size: cover;
@@ -208,12 +208,12 @@
         .navbar a {
             color: #ffcc00; /* Золотой */
             text-decoration: none;
-            padding: 0.25rem 0.6rem;
+            padding: 0.2rem 0.5rem; /* Уменьшен отступ */
             border: 1.5px solid #ffcc00;
             border-radius: 3px;
             transition: all 0.1s ease-in-out;
             text-shadow: 0.8px 0.8px #000;
-            font-size: 0.65rem;
+            font-size: 0.6rem; /* Уменьшен размер шрифта */
         }
 
         .navbar a:hover {
@@ -225,8 +225,8 @@
         .sidebar-section {
             background-color: #2a2a2a; /* Темнее красный */
             border: 1.5px solid #505050;
-            padding: 0.7rem;
-            margin-bottom: 0.7rem;
+            padding: 0.6rem; /* Уменьшен отступ */
+            margin-bottom: 0.6rem;
             border-radius: 3px;
             box-shadow: 3px 3px #000;
             background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><filter id="f" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/><feDiffuseLighting in="noise" lighting-color="%23444" surfaceScale="3" result="light"><feDistantLight azimuth="225" elevation="45"/></feDistantLighting><feComposite in="SourceGraphic" in2="light" operator="arithmetic" k1="1" k2="0" k3="0" k4="0"/></filter></defs><rect width="100%" height="100%" fill="%232a2a2a" filter="url(%23f)"/></svg>');
@@ -235,21 +235,21 @@
 
         .sidebar-section h3 {
             color: #ffcc00; /* Золотой */
-            margin-bottom: 0.5rem;
-            font-size: 0.8rem;
+            margin-bottom: 0.4rem; /* Уменьшен отступ */
+            font-size: 0.75rem; /* Уменьшен размер шрифта */
         }
 
         .sidebar-section ul li {
-            font-size: 0.7rem;
-            margin-bottom: 0.2rem;
+            font-size: 0.65rem; /* Уменьшен размер шрифта */
+            margin-bottom: 0.15rem; /* Уменьшен отступ */
         }
 
         .sidebar-link {
             display: block;
             background-color: #600000; /* Темно-красный */
             color: #ffcc00; /* Золотой */
-            padding: 0.4rem;
-            margin-bottom: 0.25rem;
+            padding: 0.35rem; /* Уменьшен отступ */
+            margin-bottom: 0.2rem; /* Уменьшен отступ */
             text-align: center;
             text-decoration: none;
             border: 1.5px solid #800000;
@@ -258,26 +258,26 @@
             border-radius: 3px;
             transition: all 0.1s ease-in-out;
             text-shadow: 0.8px 0.8px #000;
-            font-size: 0.6rem;
+            font-size: 0.55rem; /* Уменьшен размер шрифта */
         }
 
         .back-button {
             position: absolute;
-            top: 0.5rem;
-            left: 0.5rem;
+            top: 0.4rem; /* Уменьшен отступ */
+            left: 0.4rem; /* Уменьшен отступ */
             background-color: #600000; /* Темно-красный */
             color: #ffcc00; /* Золотой */
             border: 1.5px solid #800000;
             border-bottom: 3px solid #400000;
             border-right: 3px solid #400000;
-            padding: 0.25rem 0.6rem;
+            padding: 0.2rem 0.5rem; /* Уменьшен отступ */
             font-family: 'Press Start 2P', monospace;
             text-shadow: 0.8px 0.8px #000;
             cursor: pointer;
             transition: all 0.1s ease-in-out;
             border-radius: 3px;
             z-index: 10;
-            font-size: 0.6rem;
+            font-size: 0.55rem; /* Уменьшен размер шрифта */
         }
 
         .back-button:hover {
@@ -303,11 +303,11 @@
             right: 1rem;
             background-color: #1a1a1a; /* Темный фон */
             color: #ffcc00; /* Золотой текст */
-            padding: 1rem 1.5rem; /* Увеличена высота */
+            padding: 1.2rem 1.5rem; /* Увеличена высота */
             border-radius: 6px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
             font-family: 'Press Start 2P', monospace;
-            font-size: 0.8rem;
+            font-size: 0.7rem; /* Уменьшен размер шрифта */
             z-index: 1000;
             transition: top 0.5s ease-out, opacity 0.5s ease-out;
             opacity: 0;
@@ -323,45 +323,45 @@
 
         /* Стили для конкретных блоков сайдбара */
         #server-status.sidebar-section {
-            padding-top: 0.15rem; /* Еще уменьшаем высоту */
-            padding-bottom: 0.15rem;
+            padding-top: 0.1rem; /* Еще уменьшаем высоту */
+            padding-bottom: 0.1rem;
         }
 
         #info-section.sidebar-section {
-            padding-top: 1rem; /* Увеличиваем высоту */
-            padding-bottom: 1rem;
+            padding-top: 0.8rem; /* Увеличиваем высоту */
+            padding-bottom: 0.8rem;
         }
 
         /* Адаптивность для мобильных устройств */
         @media (max-width: 768px) {
             body {
-                font-size: 0.65rem; /* Базовый размер шрифта для мобильных */
+                font-size: 0.55rem; /* Базовый размер шрифта для мобильных */
             }
             .page-container {
-                padding: 0.4rem;
-                margin-top: 0.5rem;
-                margin-bottom: 0.5rem;
+                padding: 0.3rem;
+                margin-top: 0.4rem;
+                margin-bottom: 0.4rem;
             }
 
             h1 {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
 
             h2 {
-                font-size: 0.7rem;
-            }
-
-            h3 {
                 font-size: 0.6rem;
             }
 
+            h3 {
+                font-size: 0.5rem;
+            }
+
             p {
-                font-size: 0.65rem;
+                font-size: 0.55rem;
             }
 
             .button-retro, .navbar a, .sidebar-link, .back-button {
-                padding: 0.2rem 0.4rem;
-                font-size: 0.5rem;
+                padding: 0.15rem 0.3rem;
+                font-size: 0.45rem;
             }
 
             .grid-cols-2 {
@@ -369,24 +369,24 @@
             }
 
             .sidebar-section {
-                padding: 0.4rem;
-                margin-bottom: 0.4rem;
+                padding: 0.3rem;
+                margin-bottom: 0.3rem;
             }
 
             .list-item {
-                font-size: 0.6rem;
+                font-size: 0.55rem;
             }
 
             .footer {
-                font-size: 0.45rem;
+                font-size: 0.4rem;
             }
 
             #copy-notification {
                 right: 0.5rem;
                 left: 0.5rem;
                 text-align: center;
-                font-size: 0.7rem;
-                padding: 0.75rem 1rem; /* Адаптация padding для мобильных */
+                font-size: 0.6rem;
+                padding: 0.6rem 0.8rem; /* Адаптация padding для мобильных */
             }
         }
     </style>
@@ -394,7 +394,7 @@
 <body class="flex flex-col items-center p-4 md:p-8">
     <header class="text-center mb-8">
         <h1 class="text-4xl md:text-5xl mb-4">Pure Lunacy</h1>
-        <p class class="text-lg md:text-xl">ТЕХНИЧЕСКИЙ МАЙНКРАФТ СЕРВЕР</p>
+        <p class="text-lg md:text-xl">ТЕХНИЧЕСКИЙ МАЙНКРАФТ СЕРВЕР</p>
     </header>
 
     <nav class="navbar">
@@ -463,16 +463,16 @@
                 <section class="sidebar-section">
                     <h3>Новости</h3>
                     <div class="mb-3">
-                        <p class="text-sm text-gray-400" style="font-size: 0.65rem;">25.07.2025</p>
-                        <p style="font-size: 0.7rem;">Добавлены новые промышленные машины</p>
+                        <p class="text-sm text-gray-400" style="font-size: 0.6rem;">25.07.2025</p>
+                        <p style="font-size: 0.65rem;">Добавлены новые промышленные машины</p>
                     </div>
                     <div class="mb-3">
-                        <p class="text-sm text-gray-400" style="font-size: 0.65rem;">20.07.2025</p>
-                        <p style="font-size: 0.7rem;">Обновление системы автоматизации</p>
+                        <p class="text-sm text-gray-400" style="font-size: 0.6rem;">20.07.2025</p>
+                        <p style="font-size: 0.65rem;">Обновление системы автоматизации</p>
                     </div>
                     <div>
-                        <p class="text-sm text-gray-400" style="font-size: 0.65rem;">15.07.2025</p>
-                        <p style="font-size: 0.7rem;">Новый биом: Индустриальная пустошь</p>
+                        <p class="text-sm text-gray-400" style="font-size: 0.6rem;">15.07.2025</p>
+                        <p style="font-size: 0.65rem;">Новый биом: Индустриальная пустошь</p>
                     </div>
                 </section>
 
